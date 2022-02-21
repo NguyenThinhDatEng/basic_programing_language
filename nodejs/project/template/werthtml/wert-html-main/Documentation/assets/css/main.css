@@ -1,0 +1,301 @@
+/* *********************************************************************************************************************
+
+	Table of content
+
+	1. CSS Normalize / Reset
+	2. Font-face
+	3. In general
+	4. Helper classes
+	5. Grid
+	6. Common page elements
+	7. Layout
+	8. Additional plugins
+	9. CSS3 Media Queries
+
+ */
+
+
+
+/* *********************************************************************************************************************
+ * 1. CSS Normalize / Reset
+ *
+ * Differences from default
+ *      reset fieldset -> border / padding / margin : 0
+ */
+
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:0;padding:0;margin:0}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+
+
+/* *********************************************************************************************************************
+ * 2. Font-face
+ */
+
+
+
+/* *********************************************************************************************************************
+ * 3. In general
+ */
+body {
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Make box model correct -> padding, border = inner
+ */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;
+}
+
+/*
+ * Modern text selection
+ */
+::-moz-selection {
+	background: #fcc024;
+	color: #333;
+}
+
+::selection {
+	background: #fcc024;
+	color: #333;
+}
+
+/*
+ * Placeholder
+ */
+:-moz-placeholder {
+    color: #F00;
+}
+::-webkit-input-placeholder {
+    color: #F00;
+}
+
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+img {
+	vertical-align: middle;
+}
+
+textarea {
+	resize: vertical;
+}
+
+
+
+/* *********************************************************************************************************************
+ * 4. helper classes
+ */
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+/* Image replacement */
+.ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	*text-indent: -9999px; /* IE 6/7 fallback */
+}
+
+.ir:before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 100%;
+}
+
+
+
+/* *********************************************************************************************************************
+ * 5. Grid
+ */
+
+
+
+/* *********************************************************************************************************************
+ * 6. Common page elements
+ */
+body {
+	font-size: 13px;
+	color: #333;
+}
+
+a {
+	color: #fcc024;
+}
+
+a:hover, .active a {
+	text-decoration: none;
+}
+
+hr {
+	margin: 50px 0;
+	border-top: 1px dotted #ccc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+	h1 { font-size: 34px; letter-spacing: -2px; }
+	h2 { font-size: 30px; letter-spacing: -2px; }
+	h3 { font-size: 26px; letter-spacing: -1px; }
+	h4 { font-size: 22px; letter-spacing: -1px; }
+	h5 { font-size: 18px; letter-spacing: -1px; }
+	h6 { font-size: 14px; line-height: 24px; }
+
+p {
+	line-height: 20px;
+	margin: 0 0 20px;
+}
+
+* p:last-child {
+	margin: 0;
+}
+
+ul, ol {
+	padding: 0 0 0 20px;
+	margin: 0 0 20px;
+}
+
+* ul:last-child, * ol:last-child {
+	margin: 0;
+}
+
+ul li {
+	list-style: disc;
+}
+
+li {
+	line-height: 20px;
+}
+
+.highlight {
+	color: #fcc024;
+}
+
+.lighter {
+	color: #aaa;
+}
+
+.top {
+	float: right;
+}
+
+pre {
+	padding: 10px 13px;
+	border: 1px solid #eee;
+	background: #f9f9f9;
+	margin: 0 0 20px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 20px;
+	font-size: 11px;
+	color: #999;
+}
+
+* pre:last-child {
+	margin: 0;
+}
+
+small {
+	display: block;
+	margin: 0 0 15px;
+	padding: 0;
+	color: #999;
+}
+
+th,td{
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-align: left;
+}
+
+
+
+/* *********************************************************************************************************************
+ * 7. Layout
+ */
+.cont-header {
+	background: #fcc024;
+	padding: 50px 0;
+	color: #333;
+	margin: 0 0 50px;
+}
+
+.cont-header a {
+	color: #fff;
+}
+
+	.cont-header .tagline {
+		display: block;
+		margin: 22px 0 0 0;
+	}
+
+	.cont-header hr {
+		border-color: #666;
+	}
+
+
+
+/* *********************************************************************************************************************
+ * 8. Additional plugins
+ */
+
+.col9, .col9 img{
+    max-width: 860px;
+}
+
+
+/* *********************************************************************************************************************
+ * 9. CSS3 Media Queries
+ */
+@media all and (max-width: 768px) {
+
+}

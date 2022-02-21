@@ -1,0 +1,452 @@
+// =====================================================================================================================
+// Colors
+
+
+$colors_count: 13;
+
+$colors: (
+        1: #fee300,
+        2: #1a1a1a,
+        3: #b8b8b8,
+        4: #ffffff,
+        5: #e7e7e7,
+        6:#f75a4b, // Error message
+
+        7:#b53528,
+        8:#f75a4b,
+        9:#28b4a8,
+        10:#c1b6ab,
+        11:#e8e700,
+        12:#e22168,
+        13:#704916
+);
+
+
+/* =====================================================================================================================
+
+SOCIAL COLOR CODES
+
+#3b5998 //Facebook Blue
+#00aced //Twitter Blue
+#007bb5 //Linkedin Blue
+#125688 //Instagram Blue
+#053eff //Behance Blue
+#dd4b39 //Google+ Red
+#ea4c89 //Dribbble Red
+#bb0000 //YouTube Red
+#cb2027 //Pinterest Red
+
+*/
+
+
+// =====================================================================================================================
+// Color classes 1 - $color_count
+@for $i from 1 to $colors_count + 1 {
+    $c: map-get($colors, $i);
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Highlight color (used as body class to affect all colored elements)
+    .ish--hc#{$i} .ish-header__link span,
+    .ish--hc#{$i} .ish-lead__caption:before,
+    .ish--hc#{$i} .ish-content a:hover,
+    .ish--hc#{$i} .ish-footer a:hover,
+    .ish--hc#{$i} .ish-content-share__link:hover:before,
+    .ish--hc#{$i} .ish-portfolio-item__title,
+    .ish--hc#{$i} .ish-sbar p a:hover,
+    .ish--hc#{$i} .ish-sbar__logo span,
+    .ish--hc#{$i} .ish-sbar .ish-icons-group__icon:hover,
+    .ish--hc#{$i} .ish-navigation__link:hover,
+    .ish--hc#{$i} .ish-navigation__menu ul a:hover,
+    .ish--hc#{$i} .ish-navigation__item--active > a,
+    .ish--hc#{$i} .ish-navigation__subitem--active > a,
+    .ish--hc#{$i} .ish-navigation__search-btn:hover,
+    .ish--hc#{$i} .ish-navigation__search-close:hover,
+    .ish--hc#{$i} .ish-sidenav-btt__icon:hover,
+    .ish--hc#{$i} .ish-sidenav-socials__icon:hover,
+    .ish--hc#{$i} .ish-navigation__logo span,
+    .ish--hc#{$i} .ish-portfolio-filter__link--active
+    {
+        color: $c;
+    }
+
+    .ish--hc#{$i} .ish-sidebar-share__list-link:hover {
+        color: $c !important;
+    }
+
+    .ish--hc#{$i} .ish-lead__headline-inner,
+    .ish--hc#{$i} .ish-image__caption,
+    .ish--hc#{$i} .ish-portfolio-item__title:after,
+    .ish--hc#{$i} .ish-sbar p a:after,
+    .ish--hc#{$i} .ish-sidenav-menu__icon:hover #nav-icon3 span,
+    .ish--hc#{$i} ::selection,
+    .ish--hc#{$i} .justified-gallery > a > .caption,
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) [type="submit"],
+    .ish--hc#{$i} .ish-pagination-container .ish-page-numbers-active,
+    .ish--hc#{$i} .ish-pagination-container .ish-page-numbers:hover,
+    .ish--hc#{$i} .ish-preloader {
+        background: $c;
+    }
+
+    .ish--hc#{$i} .ish-portfolio-item__image,
+    .ish--hc#{$i} .ish-sidenav-btt__icon,
+    .ish--hc#{$i} .ish-sidenav-menu,
+    .ish--hc#{$i} .ish-content>.ish-content__sidebar.ish-last-xs,
+    .ish--hc#{$i} .ish-content>.ish-content__sidebar.ish-first-xs,
+    .ish--hc#{$i} .ish-pagination-container hr {
+        border-color: $c;
+    }
+
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) input:hover,
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) textarea:hover,
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) input:focus,
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) textarea:focus
+    {
+        border-color: $c !important;
+    }
+
+    // Main global lead
+    .ish--hc#{$i} .ish-lead__headline-inner
+    {
+        box-shadow: calc( #{$headline_font_size} / 1.6 ) 0 0 $c, calc( #{$headline_font_size} / -1.6 ) 0 0 $c;
+    }
+
+    // Blog overview posts lead
+    .ish--hc#{$i} .ish-blog-overview__post-lead .ish-lead__headline-inner
+    {
+        box-shadow: $box-gap/1.5 0 0 $c, -$box-gap/1.5 0 0 $c;
+    }
+
+    .ish--hc#{$i} form:not(.ish-navigation__search-form) [type="submit"]:hover
+    {
+        box-shadow: 5px 5px 0 0 darken($c, $box-shadow);
+    }
+
+
+    @media only screen and (min-width: 1024px) {
+        // Main global lead
+        .ish--hc#{$i} .ish-lead__headline-inner
+        {
+            box-shadow: $box-gap 0 0 $c, -$box-gap 0 0 $c;
+        }
+    }
+
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Highlight text color (used for text inside boxes)
+    .ish--htc#{$i} .ish-lead__headline-inner,
+    .ish--htc#{$i} .ish-image__caption,
+    .ish--htc#{$i} ::selection,
+    .ish--htc#{$i} .justified-gallery>a>.caption,
+    .ish--htc#{$i} .justified-gallery>div>.caption
+    {
+        color: $c;
+    }
+
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Text color in general
+    .ish--tc#{$i}
+    {
+        color: $c;
+    }
+
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Background color in general
+    .ish--bc#{$i}
+    {
+        background-color: $c;
+    }
+
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Elements color (text color usually)
+    h1.ish--tc#{$i},
+    h2.ish--tc#{$i},
+    h3.ish--tc#{$i},
+    h4.ish--tc#{$i},
+    h5.ish--tc#{$i},
+    h6.ish--tc#{$i},
+    .ish-sc-icon.ish--tc#{$i},
+    .ish-portfolio-item.ish--tc#{$i} .ish-portfolio-item__title
+    {
+        color: $c;
+    }
+
+    a.ish-sc-icon.ish--tc#{$i}:hover
+    {
+        color: darken($c, $box-shadow);
+    }
+
+    .ish-sc-mark.ish--bc#{$i},
+    .ish-sc-btn.ish--bc#{$i},
+    .ish-sc-toggle.ish--bc#{$i} dt a,
+    .ish-sc-toggle.ish--bc#{$i} dt a:hover,
+    .ish-sc-accordion.ish--bc#{$i} dt a,
+    .ish-sc-accordion.ish--bc#{$i} dt a:hover,
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__menu li.ish-active-item a,
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__menu li a:hover,
+    .ish-sc-icon.ish--bc#{$i}
+    {
+        background-color: $c;
+    }
+
+    hr.ish--bc#{$i},
+    .ish-sc-toggle dd.ish--bc#{$i},
+    .ish-sc-accordion dd.ish--bc#{$i},
+    .ish-sc-toggle.ish--bc#{$i} dd,
+    .ish-sc-accordion.ish--bc#{$i} dd,
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__content-single
+    {
+        border-color: $c;
+    }
+
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__menu li a,
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__menu li.ish-active-item a,
+    .ish-sc-tabs.ish--bc#{$i} .ish-sc-tabs__menu li a:hover
+    {
+        border-color: $c !important;
+    }
+
+    .ish-sc-btn.ish--bc#{$i}:hover,
+    .ish-sc-toggle.ish--bc#{$i} dt.ish-active-item a,
+    .ish-sc-toggle.ish--bc#{$i} dt a:hover,
+    .ish-sc-accordion.ish--bc#{$i} dt.ish-active-item a,
+    .ish-sc-accordion.ish--bc#{$i} dt a:hover
+    {
+        box-shadow: 5px 5px 0 0 darken($c, $box-shadow);
+    }
+
+
+    // -------------------------------------------------------------------------------------------------------------------
+    // Elements text color (used for boxed elements as text)
+    .ish-sc-btn.ish--tc#{$i},
+    .ish-sc-btn.ish--tc#{$i}:hover
+    {
+        color: $c !important;
+    }
+}
+
+
+// =====================================================================================================================
+// Color 1 - Yellow
+$c: map-get($colors, 1);
+
+.class
+{
+    color: $c;
+}
+
+
+// =====================================================================================================================
+// Color 2 - Dark grey
+$c: map-get($colors, 2);
+
+html,
+.ish-footer a,
+.ish-header__logo a,
+.ish-content a,
+.ish-content ul li a,
+.ish-content-share__link:before,
+.ish-lead__caption,
+.ish-pagination-container .ish-page-numbers-active,
+.ish-pagination-container .ish-page-numbers:hover:not( .ish-page-numbers-active ),
+.ish-prev-next__item .ish-prev-next__icon
+{
+    color: $c;
+}
+
+@media only screen and (min-width: 768px) {
+    .ish-navigation__search-field {
+        color: $c !important;
+    }
+}
+
+.ish-sbar-btn,
+.ish-sbar,
+.ish-sbar-overlay,
+.ish-sbar-close-btn,
+.ish-navigation,
+.ish-navigation__menu ul li,
+.ish-sc-btn,
+.ish-sc-toggle dt a,
+.ish-sc-accordion dt a,
+.ish-sc-tabs__menu li.ish-active-item a,
+.ish-sc-tabs__menu li a:hover,
+form:not(.ish-navigation__search-form) label,
+.ish-resp-nav,
+.ish-pagination-container .ish-page-numbers
+{
+    background: $c;
+}
+
+.ish-sc-tabs__menu li a
+{
+    border-color: $c;
+}
+
+.ish-sbar-btn,
+.ish-sbar-close-btn,
+.ish-resp-nav
+{
+    box-shadow: 0 0 20px 0 rgba($c, .25);
+}
+
+.ish-sc-btn:hover,
+.ish-sc-toggle dt.ish-active-item a,
+.ish-sc-toggle dt a:hover,
+.ish-sc-accordion dt.ish-active-item a,
+.ish-sc-accordion dt a:hover
+{
+    box-shadow: 5px 5px 0 0 darken($c, $box-shadow);
+}
+
+
+// =====================================================================================================================
+// Color 3 - lighter grey
+$c: map-get($colors, 3);
+
+.ish-footer,
+.ish-sidenav-btt__icon,
+.ish-sbar-btn,
+.ish-sbar-close-btn,
+.ish-sidenav-socials__icon,
+.ish-navigation__icon,
+.ish-navigation__link,
+.ish-navigation ul a,
+.ish-navigation__search-btn,
+.ish-navigation__search-icon,
+.ish-navigation__search-field::placeholder,
+.ish-navigation__search-close,
+.ish-portfolio-item__subtitle,
+.comment-metadata a,
+.ish-prev-next__link:hover + .ish-prev-next__icon,
+.ish-header__tagline,
+form:not(.ish-navigation__search-form) ::placeholder,
+.ish-navigation__close-btn
+{
+    color: $c;
+}
+
+.ish-sidenav-menu__icon #nav-icon3 span
+{
+    background: $c;
+}
+
+.ish-navigation__search-field
+{
+    background: rgba($c, 0.2);
+}
+
+.ish-sbar-close-btn,
+.ish-navigation__close-btn
+{
+    border-color: rgba($c, .1);
+}
+
+.ish-content a:hover,
+.ish-footer a:hover,
+.ish-portfolio-item:hover .ish-portfolio-item__title
+{
+    border-color: $c;
+}
+
+
+// =====================================================================================================================
+// Color 4 - white
+$c: map-get($colors, 4);
+
+.ish-sbar,
+.ish-sbar-btn:hover:before,
+.ish-sbar-close-btn:hover:before,
+.ish-sbar p a,
+.ish-sbar__logo,
+.ish-sbar .ish-icons-group__icon,
+.ish-sc-mark[class*="ish--bc"],
+.ish-sc-toggle dt a,
+.ish-sc-accordion dt a,
+form:not(.ish-navigation__search-form) label,
+.ish-resp-nav a,
+.ish-navigation__search-field,
+.ish-navigation__close-btn:hover:before,
+.ish-pagination-container .ish-page-numbers:not( .ish-page-numbers-active )
+{
+    color: $c;
+}
+
+.ish-sc-btn,
+.ish-sc-btn:hover,
+.ish-sc-tabs__menu li.ish-active-item a,
+.ish-sc-tabs__menu li a:hover,
+.ish-sc-accordion dt a:hover,
+.ish-sc-toggle dt a:hover,
+.ish-navigation__logo
+{
+    color: $c !important;
+}
+
+//.ish-navigation,
+body,
+.ish-sidenav-menu,
+.ish-sidenav-btt
+{
+    background: $c;
+}
+
+@media only screen and (min-width: 768px) {
+    .ish-navigation {
+        background: $c !important;
+    }
+}
+
+
+// =====================================================================================================================
+// Color 5 - light grey
+$c: map-get($colors, 5);
+
+.ish-prev-next__icon
+{
+    color: $c;
+}
+
+pre, code,
+.ish-blog-overview__post-lead
+{
+    background: $c;
+}
+
+form:not(.ish-navigation__search-form) input:hover,
+form:not(.ish-navigation__search-form) textarea:hover,
+form:not(.ish-navigation__search-form) input:focus,
+form:not(.ish-navigation__search-form) textarea:focus
+{
+    background: rgba( $c, 0.15 );
+}
+
+.ish-footer__wrapper,
+.ish-footer a,
+.ish-content a,
+.ish-prev-next__link,
+hr,
+.ish-navigation,
+.ish-portfolio-item .ish-portfolio-item__title,
+blockquote:before, blockquote:after
+{
+    border-color: $c;
+}
+
+form:not(.ish-navigation__search-form) input,
+form:not(.ish-navigation__search-form) textarea,
+.ish-blog-overview__post-no-image
+{
+    border-color: $c !important;
+}
+
+.comment-meta .avatar
+{
+    box-shadow: 4px 4px 0 0 darken($c, $box-shadow);
+}
+
+
+// =====================================================================================================================
+// Custom color

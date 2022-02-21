@@ -1,0 +1,184 @@
+// =====================================================================================================================
+// Portfolio in general
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Container
+.ish-portfolio {
+    width: 100%;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Filter
+.ish-portfolio-filter {
+    text-align: left !important;
+    padding: 0 !important;
+
+    &--title {
+        @include main-font(700, 16px, 21px);
+        margin-bottom: 20px;
+    }
+
+    &__item {
+        list-style: none;
+        display: inline-block;
+        margin: 0 10px;
+
+        > * {
+            margin: 0;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        @include main-font(500, 14px, 18px);
+
+        &--active {
+            font-weight: bold;
+            pointer-events: none;
+            border-bottom: 0 !important;
+            border-bottom-color: #fff !important;
+        }
+    }
+
+    & + .ish-portfolio-item .ish-portfolio-item__image {
+        margin-top: 0;
+    }
+}
+
+a.ish-portfolio-filter__link {
+    transition: color .3s linear, border-color .3s linear;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Item
+a.ish-portfolio-item {
+    @include transition-off();
+}
+
+.ish-portfolio-item {
+    $border: 20px;
+
+    padding: 0;
+    margin: 0 0 $pglo-mobile-bottom-margin 0;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    border-bottom: none !important;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+    &:hover {
+        .ish-portfolio-item__title:after {
+            width: 100%;
+        }
+    }
+
+    &__image-container {
+    }
+
+    &__image {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &__desc {
+
+    }
+
+    &__title {
+        display: inline-block;
+        @include main-font(700, 16px, 21px);
+        margin: 10px 0;
+        @include link-underline-on();
+        &:hover:after { width: 0; } // overriding default link-underline behavior
+    }
+
+    &__subtitle {
+        @include main-font(500, 14px, 18px);
+        display: block;
+    }
+}
+
+.ish-portfolio-item,
+.ish-portfolio-onecol,
+.ish-portfolio-twocol {
+
+    &.ish-portfolio-item-indent {
+        margin-top: 50px !important;
+        display: inline-block;
+    }
+
+    &.ish-portfolio-item-trans {
+        @include transition-on( margin-top, .5s );
+
+    }
+
+}
+
+.ish-portfolio-onecol,
+.ish-portfolio-twocol {
+
+    &.ish-portfolio-item-trans {
+        display: inline-block !important;
+    }
+
+}
+
+
+// =====================================================================================================================
+// Portfolio zigzag
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Container
+.ish-portfolio--zigzag {
+
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Filter
+.ish-portfolio-filter--zigzag {
+    width: 100%;
+    margin-bottom: calc( #{$pflo-space} - 10px ) !important;
+    display: block;
+
+    .ish-portfolio-filter--title {
+        margin-left: 0 !important;
+    }
+
+    .ish-portfolio-filter__item {
+        display: inline-block;
+        @include main-font(700, 16px, 21px);
+        margin: 0 10px;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Item
+.ish-portfolio--zigzag {
+    width: 100%;
+    display: block;
+
+    .ish-portfolio-onecol,
+    .ish-portfolio-twocol {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: $pglo-mobile-bottom-margin;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+// =====================================================================================================================
+// Portfolio detail

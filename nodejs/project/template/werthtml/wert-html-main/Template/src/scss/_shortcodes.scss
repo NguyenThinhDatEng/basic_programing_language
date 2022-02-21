@@ -1,0 +1,219 @@
+// =====================================================================================================================
+// Shortcodes
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// ish-sc-el
+.ish-sc-el {
+
+    // Add margin bottom apart from last-child
+    &:not(:last-child) {
+        margin-bottom: $general-gap;
+    }
+
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Ish Row - flexbox grid
+/*.ish-sc-row {
+  &:last-of-type {
+    //margin-bottom: 0;
+  }
+}*/
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Buttons
+.ish-sc-btn {
+    @include main-font(600, 16px, 25px);
+    @include link-underline-off;
+    padding: $box-padding-sm;
+    display: inline-block;
+    border: none;
+    outline: none;
+    @include transition-on();
+    box-shadow: none;
+    text-decoration: none;
+    margin-right: 10px;
+
+    &--lg {
+        @include main-font(600, 24px, 25px);
+        padding: $box-padding-lg;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Mark
+.ish-sc-mark {
+    padding: 0 3px;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Icon
+.ish-sc-icon {
+    display: inline-block;
+
+    &:not(:last-of-type) {
+        margin-right: $general-gap / 2;
+    }
+
+    &:before {
+        margin: 0 !important;
+    }
+
+    &--sm {
+        font-size: 20px;
+    }
+
+    &--md {
+        font-size: 26px;
+    }
+
+    &--lg {
+        font-size: 32px;
+    }
+
+    &--xl {
+        font-size: 38px;
+    }
+
+
+    // With background
+    &[class*="ish--bc"] {
+        padding: 15px;
+    }
+}
+
+// Clickable
+a.ish-sc-icon {
+    border: none;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Tgg / Acc
+.ish-sc-toggle, .ish-sc-accordion {
+    padding-bottom: 10px;
+    background: none !important;
+
+    dt {
+        margin-bottom: 10px;
+
+        &.ish-active-item {
+            a {
+                i {
+                    transform: rotate(90deg);
+                    display: inline-block;
+                    transform-origin: 50% 50%;
+                    //@include transition-on();
+                    top: 2px;
+                    left: -4px;
+                }
+            }
+        }
+
+        a {
+            @include link-underline-off;
+            text-decoration: none;
+            display: block;
+            @include main-font(600, 16px, 25px);
+            padding: $box-padding-sm;
+            text-indent: -3px;
+            @include transition-on();
+
+            i {
+                font-size: 12px;
+                display: inline-block;
+                position: relative;
+                top: -1px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    dd {
+        display: none;
+        border: 1px solid;
+        padding: ($box-gap - 5px) $box-gap;
+        margin: 0 0 10px;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Tabs
+.ish-sc-tabs {
+    background: none !important;
+    &__menu {
+        list-style: none;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        li {
+            display: inline-block;
+
+            a {
+                @include link-underline-off;
+                border: 1px solid;
+                display: block;
+                @include main-font(600, 16px, 25px);
+                padding: $box-padding-sm;
+                @include transition-on();
+
+            }
+        }
+    }
+
+    &__content {
+
+        &-single {
+            border: 1px solid;
+            padding: ($box-gap - 5px) $box-gap;
+
+            &:not(:first-child) {
+                display: none;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Gallery
+.ish-sc-gallery {
+
+    &.justified-gallery {
+
+        a {
+            position: absolute;
+            border: none;
+
+            &:hover {
+                opacity: 1 !important;
+
+                .caption {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .caption {
+            @include main-font(500, 12px, 18px);
+            //padding: 3px 7px 4px;
+            opacity: 0;
+            visibility: hidden;
+            display: inline-block !important;
+            @include transition-on();
+        }
+
+        &:hover {
+            a {
+                opacity: .5;
+            }
+        }
+    }
+}

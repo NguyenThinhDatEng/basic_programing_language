@@ -1,0 +1,44 @@
+{
+  "name": "wert-theme",
+  "description": "A library which contains all used plugins in a minified version.",
+  "version": "1.0.0",
+  "author": {
+    "name": "IshYoBoy.com",
+    "url": "http://ishyoboy.com",
+    "twitter": "@ishyoboy.com",
+    "email": "hello@ishyoboy.com"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.2.3",
+    "bower": "^1.7.9",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-bump": "^1.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-google-webfonts": "^0.0.12",
+    "gulp-header": "^1.7.1",
+    "gulp-main-bower-files": "^1.5.0",
+    "gulp-order": "^1.1.1",
+    "gulp-postcss": "^6.0.1",
+    "gulp-replace": "^0.5.4",
+    "gulp-rewrite-css": "0.0.8",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sync": "^0.1.4",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "merge-stream": "^1.0.0",
+    "postcss-inline-comment": "^2.0.0",
+    "precss": "^1.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "homepage": "http://ishyoboy.com",
+  "repository": ""
+}

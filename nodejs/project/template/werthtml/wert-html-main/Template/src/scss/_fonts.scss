@@ -1,0 +1,43 @@
+// =====================================================================================================================
+// Fonts
+
+
+@for $h from 1 to 7 {
+    h#{$h} {
+        margin: 0 0 $general-gap;
+    }
+
+    @for $t from 1 to 7 {
+        /*h#{$h} + h#{$t} {
+          margin-bottom: 0;
+        }*/
+    }
+
+    h#{$h} + h#{$h+1} {
+        margin-top: -$general-gap;
+    }
+}
+
+h1 {
+    @include main-font(700, 46px, 55px, 0, -4px);
+}
+
+h2 {
+    @include main-font(700, 36px, 44px, 0, -3px);
+}
+
+h3 {
+    @include main-font(700, 28px, 34px, 0, -2px);
+}
+
+h4 {
+    @include main-font(700, 24px, 30px, 0, -1px);
+}
+
+h5 {
+    @include main-font(700, 16px, 20px);
+}
+
+h6 {
+    @include main-font(500, 14px, 16px);
+}

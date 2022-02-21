@@ -1,0 +1,667 @@
+// =====================================================================================================================
+// Table of content
+
+
+// =====================================================================================================================
+// Resp helper
+@mixin resp-helper($wdth, $clr) { @if $resp-helper { html:after { content: $wdth; background: $clr; position: fixed; top: 0; right: 0; z-index: 9999999; font-size: 8px; font-family: Montserrat; padding: 1px 3px; color: #fff; } } }
+@include resp-helper("... - 320", orange);
+
+
+// =====================================================================================================================
+// 320px / 20em
+@media only screen and (min-width: 320px) {
+
+    @include resp-helper("320 - 480", red);
+
+
+    // Vars ------------------------------------------------------------------------------------------------------------
+
+
+    // Body ------------------------------------------------------------------------------------------------------------
+
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 480px / 30em
+@media only screen and (min-width: 480px) {
+
+    @include resp-helper("480 - 768", blue);
+
+
+    // Vars ------------------------------------------------------------------------------------------------------------
+
+    // Layout - 1140 = 120 + 900 + 60 + 60
+    $page-width: 1050px;
+    $content-margin-left: 60px;
+    $content-width: 900px;
+    $content-margin-right: 30px;
+    $sidenav-width: 60px;
+
+
+    // Body ------------------------------------------------------------------------------------------------------------
+
+    // Layout
+    .ish-wrapper {
+        max-width: $page-width;
+
+        &__inner {
+            margin-left: $content-margin-left;
+            margin-right: $content-margin-right;
+            flex-basis: $content-width;
+
+            .ish-fullrow {
+                margin-left: -$content-margin-left;
+            }
+        }
+    }
+
+    // Navigation
+    .ish-navigation {
+        &__menu {
+            padding:
+                    $general-gap
+                    $general-gap+50px
+                    $general-gap
+                    $general-gap;
+        }
+    }
+
+    // Sidenav
+    .ish-sidenav {
+        min-width: $sidenav-width;
+
+        &-inner {
+            width: $sidenav-width;
+        }
+    }
+
+    // Sidebar
+    .ish-sbar{
+        display: block;
+
+        &-btn {
+            display: block;
+        }
+
+        &__inner {
+            padding: 60px 65px 60px 60px;
+        }
+    }
+
+    .ish-navigation--opened {
+        overflow: auto;
+    }
+
+    // Resp nav
+    .ish-resp-nav {
+        display: none;
+    }
+
+    // Footer
+    .ish-footer {
+        max-width: calc( 100% - #{$sidenav-width} );
+
+        &__wrapper {
+            justify-content: flex-end;
+            padding: 0 30px 0 50px;
+            text-align: right;
+        }
+    }
+
+    // Lead title
+    .ish-lead {
+        & > .ish-lead__caption {
+            left: 56px;
+        }
+    }
+
+    .ish-lead__headline {
+        left: calc( #{$content-margin-right} - ( #{$headline_font_size} / 1.6 ) + 4px );
+    }
+
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 768px / 48em
+@media only screen and (min-width: 768px) {
+
+    @include resp-helper("768 - 1024", brown);
+
+
+    // Vars ------------------------------------------------------------------------------------------------------------
+
+    // Layout - 1140 = 120 + 900 + 60 + 60
+    $page-width: 1140px;
+    $content-margin-left: 120px;
+    $content-width: 900px;
+    $content-margin-right: 60px;
+    $sidenav-width: 60px;
+
+
+    // Body ------------------------------------------------------------------------------------------------------------
+
+    h1 {
+        @include main-font(700, 70px, 80px, 0, -4px);
+    }
+
+    h2 {
+        @include main-font(700, 55px, 65px, 0, -3px);
+    }
+
+    h3 {
+        @include main-font(700, 40px, 48px, 0, -2px);
+    }
+
+    .ish-sc-icon {
+        &--md {
+            font-size: 30px;
+        }
+
+        &--lg {
+            font-size: 40px;
+        }
+
+        &--xl {
+            font-size: 60px;
+        }
+    }
+
+    // Blockquote
+    blockquote {
+        padding: $general-gap;
+    }
+
+    // Navigation
+    .ish-navigation {
+        $icon-width: 120px;
+        $margin: 40px;
+
+        @mixin subNavHover() {
+            visibility: visible;
+            opacity: 1;
+            top: calc( 50% + 8px );
+        }
+
+        height: $header-height + 1;
+        max-width: $page-width - $content-margin-left + 30;
+        width: calc( 100% - #{$sidenav-width} - 30px);
+        border-bottom: 1px solid;
+        text-align: right;
+        padding-left: $sidebar-btn-width;
+        margin: 0;
+        background: none !important;
+        z-index: 998;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+
+        &__close-btn {
+            display: none;
+        }
+
+        &__logo {
+            display: none;
+        }
+
+        &__menu {
+            display: flex;
+            align-items: center;
+            flex-flow: row wrap;
+            justify-content: flex-end;
+            flex-direction: row;
+            width: calc( 100% - 120px );
+            height: 100%;
+            margin: 0;
+            float: right;
+            padding: 20px 0;
+            overflow: visible;
+        }
+
+        &__item {
+            @include main-font(500, 14px, 16px);
+            margin: 0 30px 0 0;
+            position: relative;
+
+            &--active {
+                > a {
+                }
+            }
+
+            //
+            > a:not(:only-child) {
+                &:before {
+                    content: ".";
+                    float: right;
+                    margin-left: 1px;
+                }
+            }
+
+            & > ul {
+                position: absolute;
+                top: calc( 50% + 18px );
+                left: 0;
+                margin: 0;
+                padding: 10px 0 0 0;
+                @include transition-on( all, .2s );
+                visibility: hidden;
+                opacity: 0;
+                z-index: 99999;
+
+                li {
+                    line-height: 20px;
+                    white-space: nowrap;
+
+                    a {
+                        padding: 4px 17px;
+                    }
+
+                    &:first-child > a {
+                        padding-top: 13px;
+                    }
+                    &:last-child > a {
+                        padding-bottom: 13px;
+                    }
+                }
+
+                &:hover {
+                    @include subNavHover();
+                }
+
+                ul {
+                    padding: 0 0 0 20px;
+
+                    li {
+                        &:first-child a {
+                            margin-top: 0;
+                        }
+                        &:last-child a {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__search-form {
+            line-height: 26px;
+        }
+
+        &__item--search {
+            font-size: 16px;
+            display: block;
+
+            a {
+                position: relative;
+                top: 1px;
+                border: none;
+                padding: 8px;
+                margin-right: -8px;
+
+                &:hover {
+                    &:after {
+                        //opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &__link {
+            &:hover {
+                & + ul {
+                    @include subNavHover();
+                }
+            }
+        }
+
+        // Search
+        &__item--search-form {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            left: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            @include transition-on();
+            width: calc( 100% - 110px);
+            margin: 0;
+
+            .ish-navigation__search-close {
+                display: block;
+            }
+        }
+
+        &__search-field {
+            @include main-font(500, 14px, 16px);
+            text-align: right;
+            width: calc( 100% - 40px );
+            float: none;
+            padding: 0 53px 0 0;
+            background: transparent !important;
+
+            + i {
+                position: absolute;
+                right: -1px;
+                top: 1px;
+            }
+        }
+
+        &__search-btn {
+            float: left;
+            position: relative;
+            padding: 0;
+        }
+
+        &__search-close {
+            position: relative;
+            top: 2px;
+            @include transition-on();
+            cursor: pointer;
+        }
+
+        &__resp-icon {
+            display: none;
+        }
+    }
+
+    // Open header navigation
+    .ish-navigation--opened {
+        .ish-navigation {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    // Header
+    .ish-header {
+        flex-wrap: nowrap;
+
+        &__logo {
+            width: auto;
+        }
+
+        &__tagline {
+            flex-grow: 1;
+        }
+    }
+
+    // Sticky nav
+    .ish-nav--sticky {
+        // Header
+        .ish-navigation {
+            height: $sticky-height;
+        }
+    }
+
+    // Sidenav
+    .ish-sidenav {
+        min-width: $sidenav-width;
+
+        &-inner {
+            width: $sidenav-width;
+        }
+
+        &-socials {
+            display: block;
+        }
+    }
+
+    // Footer
+    .ish-footer {
+        max-width: calc( 100% - #{$sidenav-width} - 30px );
+    }
+
+    // Lead title
+    .ish-lead__image {
+        & + .ish-lead__headline {
+            bottom: -70px;
+        }
+    }
+
+    .ish-lead {
+        & > .ish-lead__caption {
+            top: calc( 100% + 24px);
+        }
+    }
+
+    // Content
+    .ish-content,
+    .ish-content.ish-blog-archive {
+        &:not( .ish-blog-overview__post-content ) {
+            transition: margin .9s ease, opacity .9s ease;
+            @include transition-delay( 1s );
+            margin: calc( #{$general-gap} * 6 ) 0;
+            opacity: 0;
+        }
+
+        .ish-page-loaded & {
+            &.ish-visible:not( .ish-blog-overview__post-content ) {
+                opacity: 1;
+                margin: calc(#{$general-gap} * 3) 0;
+            }
+        }
+
+        &.ish-no-delay {
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        & > .ish-content__sidebar {
+            margin-bottom: 0;
+            margin-top: 0;
+
+            &.ish-last-xs,
+            &.ish-first-xs{
+                margin-top: 0;
+                margin-bottom: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                border: none;
+            }
+        }
+
+        .ish-content__main {
+            margin-bottom: 0;
+        }
+    }
+
+    // Blog
+    .ish-blog-overview__post-lead {
+        // Has to be addressed by "lead" because by "content" it doesn't work
+        &:last-of-type + .ish-blog-overview__post-content {
+            margin-bottom: $general-gap*3;
+        }
+    }
+
+    .ish-blog-overview__post-content {
+        margin: 60px 0;
+
+        .ish-sidebar-mdata {
+            &__item {
+                margin-bottom: $general-gap/1.1;
+            }
+        }
+
+        .ish-sc-btn {
+            margin-right: -30px;
+        }
+    }
+
+    .ish-blog-overview__post-lead {
+        .ish-lead__headline {
+            font-size: 34px;
+            line-height: 74px;
+            bottom: -75px;
+            left: 14px;
+
+            &-inner {
+                padding: 12px 0;
+            }
+        }
+    }
+
+    // Portfolio
+    .ish-portfolio-item {
+        margin: 0;
+    }
+
+    // Filter
+    .ish-portfolio-filter {
+        &__item {
+            display: list-item;
+            margin: 0;
+
+            > * {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    // Portfolio zigzag
+    .ish-portfolio--zigzag {
+        width: 100%;
+
+        // Fullwidth
+        .ish-portfolio-onecol {
+            max-width: $pflo-full-width;
+            margin: 0 0 $pflo-space $pflo-space;
+        }
+
+        // Each second fullwidth
+        .ish-portfolio-onecol:nth-child(4n) {
+            margin-left: $pflo-space * 2;
+        }
+
+        // Two col
+        .ish-portfolio-twocol {
+            width: 100%;
+            margin-bottom: $pflo-space;
+
+            // Left
+            .ish-portfolio-item:nth-child(1),
+            .ish-portfolio-twocol-left {
+                max-width: $pflo-half-width;
+                float: left;
+                display: table;
+            }
+
+            // Right
+            .ish-portfolio-item:nth-child(2),
+            .ish-portfolio-twocol-right {
+                max-width: calc( #{$pflo-half-width} + 5.5% ); // max-width: $pflo-half-width + 50px;
+                float: right;
+                display: table;
+                margin: $pflo-space ($pflo-space / 2) 0 0;
+            }
+        }
+
+        // Two col
+        .ish-portfolio-twocol:nth-child(4n+1) {
+
+            // Left
+            .ish-portfolio-item:nth-child(1),
+            .ish-portfolio-twocol-left {
+                max-width: calc( #{$pflo-half-width} + 5.5% ); // max-width: $pflo-half-width + 50px;
+                margin-top: $pflo-space;
+                margin-left: $pflo-space / 2;
+            }
+
+            // Right
+            .ish-portfolio-item:nth-child(2),
+            .ish-portfolio-twocol-right {
+                max-width: $pflo-half-width;
+                margin-top: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 1024px / 64em
+@media only screen and (min-width: 1024px) {
+
+    @include resp-helper("1024 - 1360", orange);
+
+
+    // Vars ------------------------------------------------------------------------------------------------------------
+
+    $page-width: 1140px;
+    $content-margin-left: 120px;
+    $content-width: 900px;
+    $content-margin-right: 60px;
+
+    // Body ------------------------------------------------------------------------------------------------------------
+
+    // Layout
+    .ish-wrapper {
+        max-width: $page-width;
+
+        &__inner {
+            margin-left: $content-margin-left;
+            margin-right: $content-margin-right;
+            flex-basis: $content-width;
+
+            .ish-fullrow {
+                margin-left: -$content-margin-left;
+            }
+        }
+    }
+
+    // Lead title
+    .ish-lead__headline {
+        font-size: 70px;
+        line-height: 140px;
+        left: 4px;
+
+        &-inner {
+            padding: 20px 0;
+        }
+    }
+
+    .ish-lead__image {
+        & + .ish-lead__headline {
+            bottom: -80px;
+        }
+    }
+
+    .ish-lead {
+        & > .ish-lead__caption {
+            left: 66px;
+            top: calc( 100% + 34px);
+
+            &:before {
+                margin-right: 35px;
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 1140px
+@media only screen and (min-width: 1140px) {
+
+    @include resp-helper("1140 - ...", green);
+
+
+    // Vars ------------------------------------------------------------------------------------------------------------
+
+    $content-width: calc( 1140px - 60px);
+
+    // Body ------------------------------------------------------------------------------------------------------------
+
+    // Sidenav
+    .ish-sidenav-inner {
+        right: auto;
+        left: $content-width;
+
+        .ish-sbar-opened & {
+            right: auto;
+            left: calc( #{$sidebar-width} + #{$content-width} );
+        }
+    }
+}

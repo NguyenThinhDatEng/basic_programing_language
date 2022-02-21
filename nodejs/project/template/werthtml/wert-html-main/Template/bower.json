@@ -1,0 +1,27 @@
+{
+  "name": "wert-theme",
+  "description": "A library which contains all used plugins in a minified version.",
+  "main": "",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "v2.8.3",
+    "jquery": "^1.12.4",
+    "imagesloaded": "desandro/imagesloaded#^4.1.0",
+    "lightgallery": "sachinchoolur/lightGallery#^1.2.21",
+    "justifiedGallery": "miromannino/Justified-Gallery#^3.6.1",
+    "macy": "bigbitecreative/macy.js#^1.1.2",
+    "tilt.js": "https://github.com/gijsroge/tilt.js.git#^1.1.19",
+    "smoothscroll-for-websites": "^1.4.6"
+  }
+}

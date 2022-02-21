@@ -1,0 +1,122 @@
+// =====================================================================================================================
+// Vars & mixins
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Vars
+
+
+// Resp helper
+$resp-helper: false;
+
+
+// General
+$trans-delay: .3s;
+$general-gap: 40px;
+$box-gap: 30px;
+$box-shadow: 10%;
+$box-padding-sm: 12px 18px;
+$box-padding-lg: 15px 20px;
+$opacity: .75;
+
+
+// Layout - 1140 = 120 + 900 + 60 + 60
+$page-width: 1040px;
+$content-margin-left: 20px;
+$content-width: 900px;
+$content-margin-right: 20px;
+$sidenav-width: 0;
+
+
+// Sidebar
+$sidebar-width: 450px;
+$sidebar-btn-width: 30px;
+
+
+// Preloader
+$preloader-size: 40px;
+
+
+// Header
+$header-height: 150px;
+$sticky-height: 61px;
+$resp-nav: 45px;
+$headline_coef: 16;
+$headline_font_size: calc( 100vw / #{$headline_coef} );
+
+
+// Portfolio
+$pflo-space: 9%; // 80px
+$pflo-full-width: 72%; // 650px
+$pflo-half-width: 42%; // 380px
+$pglo-mobile-bottom-margin: 50px;
+
+
+// Pagination
+$pag-num-box-size: 40px;
+
+
+// Misc
+$btt-height: 61px;
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Mixins
+@mixin brdr($clr: red, $wght: 1px) {
+    border: $wght solid $clr;
+}
+
+
+// Transition
+@mixin transition-on($transition_type: all, $transition_time: $trans-delay, $easing: ease) {
+    transition: $transition_type $transition_time $easing;
+}
+
+@mixin transition-delay($transition-delay) {
+    transition-delay: $transition-delay;
+}
+
+@mixin transition-off() {
+    transition: none;
+}
+
+
+// Font
+@mixin main-font($w: 400, $s: 16px, $lh: 28px, $ls: null, $mgn: null) {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: $w;
+    font-size: $s;
+    line-height: $lh;
+
+    @if ($ls) {
+        letter-spacing: $ls;
+    }
+
+    @if ($mgn) {
+        margin-left: $mgn;
+    }
+}
+
+
+// Link underline border
+@mixin link-underline-on() {
+    @include transition-on();
+    text-decoration: none;
+    border-bottom: 2px solid;
+    position: relative;
+}
+
+@mixin link-underline-off() {
+    border-bottom: none !important;
+
+    &:after {
+        display: none;
+    }
+}
+
+
+// Fix for blurry hovered images
+@mixin fix-blurry-image() {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}

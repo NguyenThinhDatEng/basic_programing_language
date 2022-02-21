@@ -2,7 +2,7 @@
 myList = [1, 'one', True, None, ['Nguyen Thinh', 'SnakeTZZO', 'The Will']]
 
 # 2. Python's built in enumerate function
-for index, element in enumerate(myList):
+for index, element in enumerate(myList, start = 1):
     print(f'{index}: {element}')
 print()
 
@@ -18,13 +18,13 @@ print(f'list.index(value): {myList.index("one")}')  # error or int
 print(f'list.count(value): {myList.count(True)}') # int
 print()
 # function(list)
-intList = [10, 49, 2, 20, 2022]
-print(f'intList: {intList}')
-print(f'sorted: {sorted(intList)}')
-print(f'list(reversed): {list(reversed(intList))}')
-print(f'len(list): {len(intList)}')  # int
-print(f'max: {max(intList)}') # int
-print(f'min: {min(intList)}') # int
+strList = ['banana', 'apple', 'grape', 'logan', 'watermelon']
+print(f'strList: {strList}')
+print(f'len(list): {len(strList)}')  # int
+print(f'min: {min(strList)}') # int
+print(f'max: {max(strList)}') # int
+print(f'sorted(list): {sorted(strList)}') # list
+print(f'list(reversed): {list(reversed(strList))}')
 print()
 
 #(2) change list
@@ -46,11 +46,10 @@ print(f'myList.remove(value): {myList}')
 del myList[6]
 print(f'del list[index]: {myList}')
 # sort
-intList.sort()
-print(f'list.sort(): {intList}')
-intList.reverse()
-print(f'list.reverse(): {intList}')
-
-
-
+strList.sort()
+print(f'list.sort(): {strList}')
+strList.sort(reverse = True)
+print(f'list.sort(reverse = True): {strList}')
+strList.reverse()
+print(f'list.reverse(): {strList}')
 

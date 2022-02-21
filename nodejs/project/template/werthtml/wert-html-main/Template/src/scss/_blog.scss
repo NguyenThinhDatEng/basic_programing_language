@@ -1,0 +1,134 @@
+// =====================================================================================================================
+// Blog overview
+.ish-blog-overview__post-lead, .ish-blog-overview__post-content {
+
+}
+
+.ish-blog-overview__post-lead {
+
+    // Has to be addressed by "lead" because by "content" it doesn't work
+    &:last-of-type + .ish-blog-overview__post-content {
+        margin-bottom: $general-gap*2;
+    }
+
+    &:hover {
+        .ish-lead__image-inner {
+            transform: scale(1.15) rotate(3deg);
+        }
+    }
+
+    .ish-lead__image {
+        height: 400px;
+        overflow: hidden;
+
+        &-inner {
+            display: inherit;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: 50%;
+            @include transition-on( transform, .3s, ease-in-out );
+        }
+    }
+
+    // Show headline
+    .ish-lead__headline {
+        font-size: 22px;
+        line-height: 2.2;
+        bottom: -64px;
+        left: 4px;
+
+        &-inner {
+            padding: 8px 0;
+        }
+    }
+
+    // No featured image
+    &.ish-blog-overview__post-no-image {
+        position: relative;
+    }
+}
+
+.ish-blog-overview__post-content {
+    margin: 30px 0;
+
+    .ish-sidebar-mdata {
+        &__item {
+            margin-bottom: $general-gap/4;
+        }
+    }
+
+    p {
+        margin-bottom: $general-gap/2;
+    }
+
+    .ish-sc-btn {
+        font-size: 14px;
+        padding: 8px 14px;
+        float: right;
+        margin-right: -20px;
+    }
+}
+
+
+// =====================================================================================================================
+// Comments
+.comment-list {
+    padding: 0 !important;
+    font-size: 14px;
+
+    .comment {
+        list-style: none;
+
+        &:not(:last-child) {
+            margin-bottom: $general-gap;
+        }
+
+        .comment-body {
+            &:not(:last-child) {
+                margin-bottom: $general-gap;
+            }
+
+            .comment-meta {
+                $centering: 12px;
+
+                display: table;
+
+                .avatar {
+                    $size: 50px;
+
+                    width: $size;
+                    height: $size;
+                    margin-right: 15px;
+                    float: left;
+                    margin-top: -$centering;
+                }
+
+                .comment-author, .comment-metadata {
+                    float: left;
+                    padding-top: $centering;
+                    margin-bottom: 15px;
+                }
+
+                .comment-author {
+                    margin-right: 10px;
+                    font-weight: 600;
+                }
+
+                .comment-metadata {
+                    a {
+                        margin-right: 7px;
+
+                        font-size: 12px;
+                        position: relative;
+                        top: -2px;
+                    }
+                }
+            }
+
+            .comment-content {
+                line-height: 20px;
+            }
+        }
+    }
+}
