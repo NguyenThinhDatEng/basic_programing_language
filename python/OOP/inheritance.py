@@ -5,7 +5,7 @@ class Person:
         self.age = age
         self.gender = gender
 
-class Student:
+class Student(Person):
     # inherit the attributes of Person
     age = 18
     code = '4178'
