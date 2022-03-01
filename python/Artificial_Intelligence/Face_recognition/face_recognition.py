@@ -1,6 +1,7 @@
 # Third-Party Module
+# Pypi
 import cv2
-import dlib # pypi
+import dlib
 
 # BGR (blue - green - red) -> 3D
 
