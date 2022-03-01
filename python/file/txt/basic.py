@@ -3,7 +3,7 @@
     ...
     close() ~ operating system
 '''
-# help(open)
+# help(open) -> function
 # read file
 file = open('test.txt') # file is an iterable
 '''
