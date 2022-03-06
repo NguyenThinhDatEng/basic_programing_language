@@ -92,6 +92,10 @@ s3 = f'I am {name}, {age} years old. My height is {height:.2f} cm'
 print(s1)
 print(s2)
 print(s3)
+print()
 
-
+# 6. Operator (*, +): list
+str = '-'
+print(f'str * 10 + "+" * 10: {str * 10 + "+" * 10}')
+print()
 
