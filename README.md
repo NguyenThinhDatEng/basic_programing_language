@@ -17,7 +17,10 @@ Link youtube:
 
 instructor: codeXplore
 
-Link youtube: [Lập Trình Python Cơ Bản](https://www.youtube.com/playlist?list=PLJcWUrckOCKK7tXpLTJJsl1MD98bQHHOg)
+Link youtube:
+[Lập Trình Python Cơ Bản](https://www.youtube.com/playlist?list=PLJcWUrckOCKK7tXpLTJJsl1MD98bQHHOg)
+
+[Làm chủ Python trong 4 tuần](https://www.youtube.com/watch?v=wzYcJ5MxXQw&list=PLfyZn-NXs_wWOolT0KqwWjT4mCHpvXK8T)
 
 Some basic python commands are:
 
