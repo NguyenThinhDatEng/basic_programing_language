@@ -14,7 +14,7 @@ depth learning libary
 
 interact with excel
 
-## Available
+## Internal library
 
 ### unittest
 
@@ -26,7 +26,9 @@ Make test case yourself
 
 ### string
 
+### time
 
+clock() -> return the number of seconds at currently time
+~ duration
 
-
-
+sleep(n) -> suspend execution for n seconds
