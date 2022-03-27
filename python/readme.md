@@ -16,14 +16,20 @@ interact with excel
 
 ## Internal library
 
+exit() -> turn off program
+
 ### unittest
 
 Make test case yourself
 
 ### random
 
+randrange(start, end) -> return >= start and < end
+
 ### math
 
+eval(str) -> computing: str is a expression (ex: str = '1 + sin(30) - 2**5')
+          -> assigning: (ex: x1, x2 = eval(input('Enter x1, x2: ')))
 ### string
 
 ### time
