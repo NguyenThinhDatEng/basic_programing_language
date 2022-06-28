@@ -17,6 +17,9 @@ interact with excel
 ## Internal library
 
 exit() -> turn off program
+len(str || array)
+print(val1, val2, val3, ...)
+type(var)
 
 ### unittest
 
@@ -38,3 +41,5 @@ clock() -> return the number of seconds at currently time
 ~ duration
 
 sleep(n) -> suspend execution for n seconds
+
+### numpy as np

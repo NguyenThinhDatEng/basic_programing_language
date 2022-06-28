@@ -1,5 +1,6 @@
 # 1. Define
 myList = [1, 'one', True, None, ['Nguyen Thinh', 'SnakeTZZO', 'The Will']]
+print('list[-1]: {}'.format(myList[-1]))
 
 # 2. Python's built in enumerate function
 for index, element in enumerate(myList, start = 1):
@@ -37,7 +38,7 @@ print(f'list.extend(list): {myList}')
 myList.insert(2, [2, 'two'])
 print(f'list.insert(index, value): {myList}')
 # remove elements
-myList.pop()
+myList.pop()    # return the last of list
 print(f'list.pop(): {myList}')
 myList.pop(2)
 print(f'myList.pop(index): {myList}')
@@ -53,3 +54,13 @@ print(f'list.sort(reverse = True): {strList}')
 strList.reverse()
 print(f'list.reverse(): {strList}')
 
+# 5. slicing
+nums = list(range(5))   # generate a list of elements 0 -> 4
+print(nums)
+print(nums[2:4])
+print(nums[2:])
+print(nums[:2])
+print(nums[:])
+print(nums[:-1])
+nums[2:4] = ['two', 'three']
+print(nums)
