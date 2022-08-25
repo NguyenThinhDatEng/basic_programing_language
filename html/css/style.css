@@ -1,0 +1,361 @@
+@font-face {
+    font-family: MISA Black;
+    src: url(../assets/font/GoogleSans-Black.otf);
+}
+
+@font-face {
+    font-family: MISA Black Italic;
+    src: url(../assets/font/GoogleSans-BlackItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Bold;
+    src: url(../assets/font/GoogleSans-Bold.otf);
+}
+
+@font-face {
+    font-family: MISA Bold Italic;
+    src: url(../assets/font/GoogleSans-BoldItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Italic;
+    src: url(../assets/font/GoogleSans-Italic.otf);
+}
+
+@font-face {
+    font-family: MISA Light;
+    src: url(../assets/font/GoogleSans-Light.otf);
+}
+
+@font-face {
+    font-family: MISA Light Italic;
+    src: url(../assets/font/GoogleSans-LightItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Medium;
+    src: url(../assets/font/GoogleSans-Medium.otf);
+}
+
+@font-face {
+    font-family: MISA Medium Italic;
+    src: url(../assets/font/GoogleSans-MediumItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Regular;
+    src: url(../assets/font/GoogleSans-Regular.otf);
+}
+
+body {
+    font-size: large;
+    font-family: MISA Regular;
+}
+
+.task {
+    position: relative;
+    display: block;
+}
+
+.title {
+    font-family: MISA Bold Italic;
+    font-size: x-large
+}
+
+#t1 {
+    font-family: MISA Black;
+}
+
+#t2 {
+    font-family: MISA Black Italic;
+}
+
+#t3 {
+    font-family: MISA Bold;
+}
+
+#t4 {
+    font-family: MISA Bold Italic;
+}
+
+#t5,
+#t6 {
+    font-family: MISA Light;
+}
+
+#t7 {
+    font-family: MISA Light Italic;
+}
+
+#t8 {
+    font-family: MISA Medium;
+}
+
+#t9 {
+    font-family: MISA Medium Italic;
+}
+
+#t10 {
+    font-family: MISA Regular;
+}
+
+.button {
+    background-color: #019460;
+    border-radius: 4px;
+    height: 40px;
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    border: none;
+    margin-right: 0px;
+}
+
+.button:hover {
+    background-color: #2FBE8E;
+}
+
+.button:active {
+    background-color: #01B075;
+}
+
+.button-icon {
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 16px;
+    padding-right: 16px;
+    padding-left: 40px;
+    color: white;
+    /* text-align: left; */
+}
+
+#bi1 {
+    background-image: url(../assets/icons/add.png);
+}
+
+#bi2 {
+    background-image: url(../assets/icons/floppy-disk.png);
+}
+
+#bi3 {
+    background-image: url(../assets/icons/down-arrow.png);
+}
+
+.combobox {
+    position: relative;
+    max-width: 200px;
+    min-width: 180px;
+
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+
+    background-color: transparent;
+    z-index: 10;
+}
+
+.combobox select {
+    border: none;
+    padding-left: 16px;
+    outline: none;
+
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+
+    background-color: transparent;
+
+    display: block;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.combobox::before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 38px;
+    content: "∨";
+    text-align: center;
+    color: #4f4e4e;
+    border-left: 1px solid #BBBBBB;
+    z-index: -1;
+}
+
+.combobox:hover::before {
+    background-color: #BBBBBB;
+}
+
+label {
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+
+.input {
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+    padding-left: 16px;
+}
+
+.input:focus {
+    border-color: #019160;
+    font-size: 13px;
+}
+
+.inputnor {
+    border: 1px solid white;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+}
+
+.inputnor:focus {
+    border-color: #019160;
+    font-size: 13px;
+    place-content: none;
+}
+
+.inputicon:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.inputerr {
+    border: 1px solid #FF4747;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+}
+
+.input-icon {
+    background-image: url(../assets/icons/search.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 16px;
+    padding-left: 40px;
+}
+
+.toast-list {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+
+.toast {
+    position: relative;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 4px;
+    height: 48px;
+    width: 250px;
+    line-height: 48px;
+    box-shadow: 0px 3px 6px #000;
+    /*vertically center*/
+}
+
+.toast+.toast { /* ~ all, + first behind*/
+    margin-top: 10px;
+}
+
+.toast__icon--checked {
+    float: left;
+    /*top + left*/
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/icons/check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(50%, 50%);
+}
+
+.toast__icon--err {
+    float: left;
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/icons/cross.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(50%, 50%);
+}
+
+.toast__content {
+    font-size: 13px;
+    margin-left: 42px;
+    font-family: MISA Regular;
+}
+
+.toast__button {
+    background-image: url(../assets/icons/x.svg);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transform: translate(-50%, 50%);
+}
+
+.toast__button:hover {
+    background-color: #BBBBBB;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+table, tr{
+    border: 1px solid rgb(235, 235, 235);
+    border-collapse: collapse;
+    text-align:left;
+}
+
+tr:hover {
+    background-color: rgb(235, 235, 235)
+}
+
+th {
+    background-color: white;
+}
+
+td, th {
+    padding-left: 18px;
+}
+
+.dialog {
+    position: fixed;
+    right:50%;
+    bottom:50%;
+    background-color: aqua;
+    height: 200px;
+    width: 500px;
+    line-height: 200px;
+}
+
+.dialog__icon {
+    background-image: url(../asset/icons/x.svg);
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 16px;
+    height: 16px;
+}
+
+.dialog__header {
+    height: 24px;
+    padding: 24px;
+}
+
+.dialog__content {
+    font-family: MS Regular;
+    text-align: center;
+}
+
+/* bgc - backgroud color*/
+
+/* .row {
+    display:flex;
+    flex-direction:column;
+    width:20%;
+} */
