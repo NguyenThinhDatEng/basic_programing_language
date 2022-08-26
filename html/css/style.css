@@ -258,7 +258,8 @@ label {
     /*vertically center*/
 }
 
-.toast+.toast { /* ~ all, + first behind*/
+.toast+.toast {
+    /* ~ all, + first behind*/
     margin-top: 10px;
 }
 
@@ -290,10 +291,10 @@ label {
 }
 
 .toast__button {
+    position: absolute;
     background-image: url(../assets/icons/x.svg);
     width: 24px;
     height: 24px;
-    position: absolute;
     right: 0px;
     top: 0px;
     transform: translate(-50%, 50%);
@@ -305,10 +306,11 @@ label {
     border-radius: 4px;
 }
 
-table, tr{
+table,
+tr {
     border: 1px solid rgb(235, 235, 235);
     border-collapse: collapse;
-    text-align:left;
+    text-align: left;
 }
 
 tr:hover {
@@ -319,37 +321,86 @@ th {
     background-color: white;
 }
 
-td, th {
+td,
+th {
     padding-left: 18px;
 }
 
 .dialog {
+    border-radius: 4px;
     position: fixed;
-    right:50%;
-    bottom:50%;
-    background-color: aqua;
-    height: 200px;
+    /* center the screen */
+    right: 50%;
+    bottom: 50%;
     width: 500px;
-    line-height: 200px;
+    transform: translate(50%, 50%);
+    box-shadow: 0 3px 6px #000;
 }
 
-.dialog__icon {
-    background-image: url(../asset/icons/x.svg);
+.dialog__button {
     position: absolute;
-    top: 0;
-    right:0;
-    width: 16px;
-    height: 16px;
+    right: 0px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/icons/x.svg);
+    background-position: center;
+}
+
+.dialog__button:hover {
+    background-color: #bbb;
 }
 
 .dialog__header {
-    height: 24px;
     padding: 24px;
+    font-family: MISA bold;
 }
 
 .dialog__content {
-    font-family: MS Regular;
-    text-align: center;
+    font-family: Arial;
+    height: 40px;
+    padding-bottom: 24px;
+    padding-right: 24px;
+}
+
+.dialog__icon--warning {
+    float: left;
+    width: 24px;
+    height: 24px;
+    transform: translate(50%, 50%);
+    padding-left: 24px;
+    background-image: url(../assets/icons/warning.png);
+    background-repeat: no-repeat;
+}
+
+.dialog_text {
+    padding-left: 58px;
+}
+
+.dialog__footer {
+    position: relative;
+    border-radius: 0 0 4px 4px;
+    height: 60px;
+    background-color: rgb(232, 230, 230);
+}
+
+.dialog-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(-24px, 10px);
+}
+
+.dialog-button-2 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(-120%, 10px);
+    color: #000;
+    background-color: rgb(232, 230, 230);
+}
+
+.dialog-button-2:hover {
+    background-color: #bbb;
 }
 
 /* bgc - backgroud color*/
