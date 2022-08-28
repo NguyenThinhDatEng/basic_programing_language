@@ -54,8 +54,8 @@ body {
 }
 
 .task {
-    position: relative;
     display: block;
+    position: relative;
 }
 
 .title {
@@ -98,6 +98,12 @@ body {
 
 #t10 {
     font-family: MISA Regular;
+    margin-top: 200px;
+    position: absolute;
+}
+
+#t11 {
+    margin-top: 600px;
 }
 
 .button {
@@ -130,26 +136,20 @@ body {
     /* text-align: left; */
 }
 
-#bi1 {
+.button-icon__add {
     background-image: url(../assets/icons/add.png);
 }
 
-#bi2 {
+.button-icon__save {
     background-image: url(../assets/icons/floppy-disk.png);
-}
-
-#bi3 {
-    background-image: url(../assets/icons/down-arrow.png);
 }
 
 .combobox {
     position: relative;
     max-width: 200px;
     min-width: 180px;
-
     border: 1px solid #BBBBBB;
     border-radius: 4px;
-
     background-color: transparent;
     z-index: 10;
 }
@@ -201,6 +201,7 @@ label {
     outline: none;
     height: 40px;
     padding-left: 16px;
+    margin-bottom: 16px;
 }
 
 .input:focus {
@@ -327,13 +328,14 @@ th {
 }
 
 .dialog {
+    /*fixed*/
+    position: absolute;
     border-radius: 4px;
-    position: fixed;
     /* center the screen */
+    top: 50%;
     right: 50%;
-    bottom: 50%;
+    transform: translate(50%);
     width: 500px;
-    transform: translate(50%, 50%);
     box-shadow: 0 3px 6px #000;
 }
 
@@ -353,6 +355,7 @@ th {
 .dialog__header {
     padding: 24px;
     font-family: MISA bold;
+    background-color: #fff;
 }
 
 .dialog__content {
@@ -360,6 +363,7 @@ th {
     height: 40px;
     padding-bottom: 24px;
     padding-right: 24px;
+    background-color: #fff;
 }
 
 .dialog__icon--warning {
@@ -401,6 +405,84 @@ th {
 
 .dialog-button-2:hover {
     background-color: #bbb;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%);
+    width: 500px;
+    box-shadow: 0 3px 6px #000;
+}
+
+.pop-up__icon {
+    position: absolute;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-image: url(../assets/icons/x.svg);
+    background-color: #bbb;
+}
+
+.pop-up__content {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+    padding-bottom: 24px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+label {
+    padding-bottom: 4px;
+}
+
+.date {
+    display: flex;
+    width: 50%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+.date .input {
+    border: none;
+}
+
+.input-date {
+    width: 73%;
+    margin-bottom: 0;
+}
+
+.input-date__icon {
+    background-image: url(../assets/icons/calendar.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #BBB;
+    border-radius: 0 4px 4px 0;
+    border: transparent;
+    border-left: 1px solid #bbb;
+}
+
+.pop-up__footer {
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0 0 4px 4px;
+    align-items: center;
+    height: 60px;
+    background-color: rgb(240, 236, 236);
+    padding-right: 24px;
+}
+
+.button-2 {
+    background-color: rgb(209, 207, 207);
+    color: #000;
+    margin-right: 16px;
 }
 
 /* bgc - backgroud color*/
