@@ -133,7 +133,6 @@ body {
     padding-right: 16px;
     padding-left: 40px;
     color: white;
-    /* text-align: left; */
 }
 
 .button-icon__add {
@@ -190,7 +189,7 @@ body {
 }
 
 label {
-    font-size: 13px;
+    font-size: 16px;
     color: black;
     font-weight: bold;
 }
@@ -202,6 +201,7 @@ label {
     height: 40px;
     padding-left: 16px;
     margin-bottom: 16px;
+    font-size: 16px;
 }
 
 .input:focus {
@@ -384,7 +384,7 @@ th {
     position: relative;
     border-radius: 0 0 4px 4px;
     height: 60px;
-    background-color: rgb(232, 230, 230);
+    background-color: rgb(240, 236, 236);
 }
 
 .dialog-button {
@@ -400,7 +400,7 @@ th {
     right: 0px;
     transform: translate(-120%, 10px);
     color: #000;
-    background-color: rgb(232, 230, 230);
+    background-color: rgb(240, 236, 236);
 }
 
 .dialog-button-2:hover {
@@ -483,6 +483,132 @@ label {
     background-color: rgb(209, 207, 207);
     color: #000;
     margin-right: 16px;
+}
+
+.button-2:hover {
+    background-color: #bbb;
+}
+
+.pop-up {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    border-radius: 4px;
+    width: 1200px;
+    box-shadow: 0 3px 6px #000;
+}
+
+.container+.pop-up {
+    margin-top: 16px;
+}
+
+.pop-up .pop-up__icon {
+    background-color: #fff;
+}
+
+.pop-up .dialog__header {
+    font-size: 20px;
+}
+
+.all-content {
+    display: flex;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.avatar__icon {
+    width: 100%;
+    height: 256px;
+    background-image: url(../assets/icons/user-256px.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.avatar p {
+    margin: 0;
+}
+
+.avatar__title {
+    width: 100%;
+    padding: 0 2px;
+    text-align: center;
+}
+
+
+
+.content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+}
+
+.heading {
+    text-transform: uppercase;
+    font-family: MISA Bold;
+    padding-bottom: 5px;
+}
+
+.heading::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 4px;
+    background-color: #019160;
+    top: 100%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-left {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+.box-right {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
+
+.box-select {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+    padding-left: 16px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.salary {
+    text-align: right;
+}
+
+.user__icon {
+    background-position-x: 40px;
+    padding-left: 64px;
+    padding-right: 40px;
+}
+
+.user__icon-2 {
+    background-color: rgb(240, 236, 236);
 }
 
 /* bgc - backgroud color*/
