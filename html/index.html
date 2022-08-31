@@ -36,11 +36,11 @@
 
     <div class="task" id=t3>
         Task 3: Button Icons
-        <div class="row">
+        <div>
             <button class="button-icon button button-icon__add">
                 Create new staff
             </button>
-            <button class="button button-icon2 button-icon button-icon__save">
+            <button class="button button-icon button-icon__save">
                 Save the information
             </button>
         </div>
@@ -136,143 +136,141 @@
 
     <div class="task" id=t10>
         Task 10: add_new/modify Pop-Up
-        <div class="row">
-            <div class="row container">
-                <div class="pop-up__icon"></div>
-                <div class="row pop-up__header">Sign Up</div>
-                <div class="row pop-up__content">
-                    <label for="">Full name <label style="color:red">*</label></label>
-                    <input type="text" class="input" placeholder="Enter your full name">
-                    <label for="">Email <label style="color:red">*</label></label>
-                    <input type="text" class="input" placeholder="Enter your email">
-                    <label for="">Date Of Birth <label style="color:red">*</label></label>
-                    <div class="date">
-                        <input type="text" class="input input-date" placeholder="_ _/_ _/_ _ _ _">
-                        <div class="input-date__icon"></div>
-                    </div>
-                </div>
-                <div class="pop-up__footer">
-                    <button class="button button-2">Cancel</button>
-                    <button class="button button-icon button-icon__save">Save</button>
+        <div class="row container">
+            <div class="row pop-up__icon"></div>
+            <div class="pop-up__header">Sign Up</div>
+            <div class="row pop-up__content">
+                <label for="">Full name <label style="color:red">*</label></label>
+                <input type="text" class="input" placeholder="Enter your full name">
+                <label for="">Email <label style="color:red">*</label></label>
+                <input type="text" class="input" placeholder="Enter your email">
+                <label for="">Date Of Birth <label style="color:red">*</label></label>
+                <div class="date">
+                    <input type="text" class="input input-date" placeholder="_ _/_ _/_ _ _ _">
+                    <div class="input-date__icon"></div>
                 </div>
             </div>
+            <div class="pop-up__footer">
+                <button class="button pop-up__button2">Cancel</button>
+                <button class="button button-icon button-icon__save">Save</button>
+            </div>
+        </div>
 
-            <div class="row pop-up">
-                <div class="pop-up__icon"></div>
-                <div class="dialog__header">STAFF INFORMATION</div>
-                <div class="row pop-up__content">
-                    <div class="all-content">
-                        <div class="avatar">
-                            <div class="avatar__icon"></div>
-                            <p class="avatar__title">(Please choose .jpg .jpeg .png .gif image)</p>
+        <div class="row pop-up">
+            <div class="pop-up__icon"></div>
+            <div class="dialog__header">STAFF INFORMATION</div>
+            <div class="row pop-up__content">
+                <div class="all-content">
+                    <div class="avatar">
+                        <div class="avatar__icon"></div>
+                        <p class="avatar__title">(Please choose .jpg .jpeg .png .gif image)</p>
+                    </div>
+                    <div class="content">
+                        <!-- row 1 -->
+                        <h3 class="row heading">A. General Information</h3>
+                        <!-- row 2 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">Staff code (<label style="color:red">*</label>)</label>
+                                <input type="text" class="input" value="IT01">
+                            </div>
+                            <div class="box-right">
+                                <label for="">Full name (<label style="color:red">*</label>)</label>
+                                <input type="text" class="input" value="Nguyen Van Thinh">
+                            </div>
                         </div>
-                        <div class="content">
-                            <!-- row 1 -->
-                            <h3 class="row heading">A. General Information</h3>
-                            <!-- row 2 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">Staff code (<label style="color:red">*</label>)</label>
-                                    <input type="text" class="input" value="IT01">
-                                </div>
-                                <div class="box-right">
-                                    <label for="">Full name (<label style="color:red">*</label>)</label>
-                                    <input type="text" class="input" value="Nguyen Van Thinh">
-                                </div>
+                        <!-- row 3 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="dateofbirth">Date Of Birth</label>
+                                <input type="date" id="dateofbirth" class="input" value="2001-10-18">
                             </div>
-                            <!-- row 3 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="dateofbirth">Date Of Birth</label>
-                                    <input type="date" id="dateofbirth" class="input" value="2001-10-18">
-                                </div>
-                                <div class="box-right">
-                                    <label for="gender">Gender</label>
-                                    <Select id="gender" class="box-select">
-                                        <option selected>Male</option>
-                                        <option value=1>Female</option>
-                                        <option value=2>Unknown</option>
-                                    </Select>
-                                </div>
+                            <div class="box-right">
+                                <label for="gender">Gender</label>
+                                <Select id="gender" class="box-select">
+                                    <option selected>Male</option>
+                                    <option value=1>Female</option>
+                                    <option value=2>Unknown</option>
+                                </Select>
                             </div>
-                            <!-- row 4 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">Identity Card Number (<label style="color:red">*</label>)</label>
-                                    <input type="text" class="input" value="Nguyen Van Thinh">
-                                </div>
-                                <div class="box-right">
-                                    <label for="licensedate">License Date</label>
-                                    <input type="date" id="licensedate" class="input" value="2016-10-18">
-                                </div>
+                        </div>
+                        <!-- row 4 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">Identity Card Number (<label style="color:red">*</label>)</label>
+                                <input type="text" class="input" value="Nguyen Van Thinh">
                             </div>
-                            <!-- row 5 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">License Place</label>
-                                    <input type="text" class="input" value="Ha Noi">
-                                </div>
+                            <div class="box-right">
+                                <label for="licensedate">License Date</label>
+                                <input type="date" id="licensedate" class="input" value="2016-10-18">
                             </div>
-                            <!-- row 6 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">Email (<label style="color:red">*</label>)</label>
-                                    <input type="text" class="input" value="thinh.nv194178@sis.hust.edu.vn">
-                                </div>
-                                <div class="box-right">
-                                    <label for="">Phone Number (<label style="color:red">*</label>)</label>
-                                    <input type="text" class="input" value="0963689218">
-                                </div>
+                        </div>
+                        <!-- row 5 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">License Place</label>
+                                <input type="text" class="input" value="Ha Noi">
                             </div>
-                            <!-- row 7 -->
-                            <h3 class="row heading">A. General Information</h3>
-                            <!-- row 8 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="position">Position</label>
-                                    <Select id="position" class="box-select">
-                                        <option selected>Director</option>
-                                    </Select>
-                                </div>
-                                <div class="box-right">
-                                    <label for="department">Department</label>
-                                    <Select id="department" class="box-select">
-                                        <option selected>Human resouces department</option>
-                                    </Select>
-                                </div>
+                        </div>
+                        <!-- row 6 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">Email (<label style="color:red">*</label>)</label>
+                                <input type="text" class="input" value="thinh.nv194178@sis.hust.edu.vn">
                             </div>
-                            <!-- row 9 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">Personal Tax Code</label>
-                                    <input type="text" class="input" value="01234567890">
-                                </div>
-                                <div class="box-right">
-                                    <label for="">Basic Salary</label>
-                                    <input type="text" class="input salary" value="(VND)">
-                                </div>
+                            <div class="box-right">
+                                <label for="">Phone Number (<label style="color:red">*</label>)</label>
+                                <input type="text" class="input" value="0963689218">
                             </div>
-                            <!-- row 10 -->
-                            <div class="row input-box">
-                                <div class="box-left">
-                                    <label for="">Date Of Joining The Company</label>
-                                    <input type="date" id="" class="input" value="2022-10-18">
-                                </div>
-                                <div class="box-right">
-                                    <label for="">Work State</label>
-                                    <Select id="" class="box-select">
-                                        <option selected>Working</option>
-                                    </Select>
-                                </div>
+                        </div>
+                        <!-- row 7 -->
+                        <h3 class="row heading">A. General Information</h3>
+                        <!-- row 8 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="position">Position</label>
+                                <Select id="position" class="box-select">
+                                    <option selected>Director</option>
+                                </Select>
+                            </div>
+                            <div class="box-right">
+                                <label for="department">Department</label>
+                                <Select id="department" class="box-select">
+                                    <option selected>Human resouces department</option>
+                                </Select>
+                            </div>
+                        </div>
+                        <!-- row 9 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">Personal Tax Code</label>
+                                <input type="text" class="input" value="01234567890">
+                            </div>
+                            <div class="box-right">
+                                <label for="">Basic Salary</label>
+                                <input type="text" class="input salary" value="(VND)">
+                            </div>
+                        </div>
+                        <!-- row 10 -->
+                        <div class="row input-box">
+                            <div class="box-left">
+                                <label for="">Date Of Joining The Company</label>
+                                <input type="date" id="" class="input" value="2022-10-18">
+                            </div>
+                            <div class="box-right">
+                                <label for="">Work State</label>
+                                <Select id="" class="box-select">
+                                    <option selected>Working</option>
+                                </Select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- footer -->
-                <div class="pop-up__footer">
-                    <button class="button button-2 user__icon-2">Cancel</button>
-                    <button class="button button-icon button-icon__save user__icon">Save</button>
-                </div>
+            </div>
+            <!-- footer -->
+            <div class="pop-up__footer">
+                <button class="button button-2 user__icon-2">Cancel</button>
+                <button class="button button-icon button-icon__save user__icon">Save</button>
             </div>
         </div>
     </div>

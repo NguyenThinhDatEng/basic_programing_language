@@ -277,7 +277,6 @@
 
 .dialog__content {
     font-family: Arial;
-    height: 40px;
     padding-bottom: 24px;
     padding-right: 24px;
     background-color: #fff;
@@ -337,7 +336,13 @@
     padding: 24px;
     font-family: MISA bold;
     background-color: #fff;
-    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .pop-up__icon {
@@ -345,9 +350,11 @@
     right: 0;
     width: 24px;
     height: 24px;
+    border-radius: 4px;
     background-position: center;
     background-image: url(../assets/icons/x.svg);
     background-color: #bbb;
+    background-repeat: no-repeat;
 }
 
 .pop-up__content {
@@ -357,39 +364,38 @@
     padding-bottom: 24px;
     padding-right: 24px;
     padding-left: 24px;
-    box-sizing: border-box;
 }
 
 .date {
     display: flex;
     width: 50%;
-    border: 1px solid #bbb;
+    border: 1px solid #bbbbbb;
     border-radius: 4px;
 }
 
 .date .input {
     border: none;
+    border-radius: 0;
 }
 
-.input-date {
-    width: 73%;
+.date .input-date {
+    width: calc(100% - 40px);
     margin-bottom: 0;
+    border-right: 1px solid #bbb;
 }
 
 .input-date__icon {
+    width: 40px;
+    height: 40px;
+    border: none;
     background-image: url(../assets/icons/calendar.png);
     background-repeat: no-repeat;
     background-position: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #BBB;
-    border-radius: 0 4px 4px 0;
-    border: transparent;
-    border-left: 1px solid #bbb;
 }
 
 .pop-up__footer {
     display: flex;
+    position: relative;
     justify-content: flex-end;
     border-radius: 0 0 4px 4px;
     align-items: center;
@@ -398,21 +404,13 @@
     padding-right: 24px;
 }
 
-.button-2 {
-    background-color: rgb(209, 207, 207);
+.pop-up__button2 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(-140%, 10px);
     color: #000;
-    margin-right: 16px;
-}
-
-.button-2:hover {
-    background-color: #bbb;
-}
-
-.row {
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    width: 100%;
+    background-color: rgb(204, 201, 201);
 }
 
 .pop-up {
@@ -530,10 +528,20 @@
     background-color: rgb(240, 236, 236);
 }
 
+.button-2 {
+    background-color: rgb(240, 236, 236);
+    color: #000;
+    margin-right: 16px;
+}
+
+.button-2:hover {
+    background-color: #bbb;
+}
+
 .grid {
     display: grid;
     grid-template-rows: 60px calc(100vh - 60px);
-    grid-template-columns: 300px calc(100% - 400px);
+    grid-template-columns: 300px calc(100% - 300px);
 }
 
 .home-header {
@@ -551,11 +559,9 @@
 }
 
 .table {
-    box-sizing: border-box;
     padding: 24px;
 }
 
 .table-header {
-    box-sizing: border-box;
     padding: 24px;
 }
