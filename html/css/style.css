@@ -1,61 +1,8 @@
-@font-face {
-    font-family: MISA Black;
-    src: url(../assets/font/GoogleSans-Black.otf);
-}
-
-@font-face {
-    font-family: MISA Black Italic;
-    src: url(../assets/font/GoogleSans-BlackItalic.otf);
-}
-
-@font-face {
-    font-family: MISA Bold;
-    src: url(../assets/font/GoogleSans-Bold.otf);
-}
-
-@font-face {
-    font-family: MISA Bold Italic;
-    src: url(../assets/font/GoogleSans-BoldItalic.otf);
-}
-
-@font-face {
-    font-family: MISA Italic;
-    src: url(../assets/font/GoogleSans-Italic.otf);
-}
-
-@font-face {
-    font-family: MISA Light;
-    src: url(../assets/font/GoogleSans-Light.otf);
-}
-
-@font-face {
-    font-family: MISA Light Italic;
-    src: url(../assets/font/GoogleSans-LightItalic.otf);
-}
-
-@font-face {
-    font-family: MISA Medium;
-    src: url(../assets/font/GoogleSans-Medium.otf);
-}
-
-@font-face {
-    font-family: MISA Medium Italic;
-    src: url(../assets/font/GoogleSans-MediumItalic.otf);
-}
-
-@font-face {
-    font-family: MISA Regular;
-    src: url(../assets/font/GoogleSans-Regular.otf);
-}
-
-body {
-    font-size: large;
-    font-family: MISA Regular;
-}
-
 .task {
     display: block;
     position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .title {
@@ -99,11 +46,6 @@ body {
 #t10 {
     font-family: MISA Regular;
     margin-top: 200px;
-    position: absolute;
-}
-
-#t11 {
-    margin-top: 600px;
 }
 
 .button {
@@ -188,11 +130,6 @@ body {
     background-color: #BBBBBB;
 }
 
-label {
-    font-size: 16px;
-    color: black;
-    font-weight: bold;
-}
 
 .input {
     border: 1px solid #BBBBBB;
@@ -307,26 +244,6 @@ label {
     border-radius: 4px;
 }
 
-table,
-tr {
-    border: 1px solid rgb(235, 235, 235);
-    border-collapse: collapse;
-    text-align: left;
-}
-
-tr:hover {
-    background-color: rgb(235, 235, 235)
-}
-
-th {
-    background-color: white;
-}
-
-td,
-th {
-    padding-left: 18px;
-}
-
 .dialog {
     /*fixed*/
     position: absolute;
@@ -411,11 +328,16 @@ th {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%);
-    width: 500px;
+    max-width: 500px;
     box-shadow: 0 3px 6px #000;
+    margin: 16px 0;
+}
+
+.pop-up__header {
+    padding: 24px;
+    font-family: MISA bold;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
 .pop-up__icon {
@@ -435,10 +357,7 @@ th {
     padding-bottom: 24px;
     padding-right: 24px;
     padding-left: 24px;
-}
-
-label {
-    padding-bottom: 4px;
+    box-sizing: border-box;
 }
 
 .date {
@@ -489,9 +408,16 @@ label {
     background-color: #bbb;
 }
 
+.row {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 .pop-up {
     display: flex;
-    position: absolute;
+    position: relative;
     flex-direction: column;
     border-radius: 4px;
     width: 1200px;
@@ -538,17 +464,10 @@ label {
     text-align: center;
 }
 
-
-
 .content {
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 100%;
-}
-
-.row {
-    position: relative;
     width: 100%;
 }
 
@@ -611,10 +530,32 @@ label {
     background-color: rgb(240, 236, 236);
 }
 
-/* bgc - backgroud color*/
+.grid {
+    display: grid;
+    grid-template-rows: 60px calc(100vh - 60px);
+    grid-template-columns: 300px calc(100% - 400px);
+}
 
-/* .row {
-    display:flex;
-    flex-direction:column;
-    width:20%;
-} */
+.home-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    box-shadow: 0 2px 3px #000;
+}
+
+.home-menu {
+    border: 1px solid #bbb;
+}
+
+.home-content {
+    background-color: #e9ebee;
+}
+
+.table {
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.table-header {
+    box-sizing: border-box;
+    padding: 24px;
+}
