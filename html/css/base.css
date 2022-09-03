@@ -19,14 +19,17 @@ b {
     padding: 0 4px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     .home-menu {
         display: none;
     }
 
     .home-content {
-        grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column: 1 / span 16;
+    }
+
+    .content-filter {
+        flex-direction: column;
     }
 }
 

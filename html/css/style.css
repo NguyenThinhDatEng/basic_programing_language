@@ -170,7 +170,7 @@
     height: 40px;
 }
 
-.input-icon {
+.icon_search {
     background-image: url(../assets/icons/search.png);
     background-repeat: no-repeat;
     background-position-y: center;
@@ -540,88 +540,185 @@
 
 .home-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(16, 1fr);
     grid-template-rows: 48px calc(100vh - 48px);
 }
 
-.home-header {
-    grid-column: 1/ span 12;
+.home-logo {
+    grid-column: 1/ span 2;
     display: flex;
     align-items: center;
-    box-shadow: 0px 3px 3px #000;
+    border-right: 1px solid #bbb;
 }
 
-.header-icon {
+.icon {
     height: 24px;
     width: 24px;
     border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.icon__menu-9-dots {
     margin-left: 16px;
     margin-right: 10px;
     background-image: url(../assets/icons/dots-menu.png);
+}
+
+.restaurant-name {
+    display: flex;
+    align-items: center;
+    grid-column: 3/ span 11;
+    padding-left: 24px;
+    border-bottom: 1px solid #bbb;
+}
+
+.home-user {
+    grid-column: 14/ span 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #bbb;
+    padding-right: 24px;
+}
+
+.avatar-icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 16px;
+    background-image: url(../assets/icons/avatar-default-24px.png);
     background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .home-menu {
     grid-column: 1/ span 2;
-    border: 1px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #bbb;
+    padding-left: 16px;
+}
+
+.menu-content {
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .menu-header {
     height: 48px;
-
 }
-
-
 
 .home-content {
-    grid-column: 3/ span 10;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #e3e1e1;
-    padding-right: 24px;
-    padding-left: 12px;
-}
-
-.table-header {
-    display: grid;
-    grid-template-columns: 100px repeat(4, 2fr);
-    font-weight: bold;
-    background-color: #fff;
-}
-
-.table-row {
+    grid-column: 3/ span 14;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 12px 0 12px;
+}
+
+.content-header {
+    display: block;
     align-items: center;
-    border-bottom: 1px solid #000;
+    justify-content: space-between;
+}
+
+.title-creation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-filter-refresh {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-filter {
+    display: flex;
+    position: relative;
+}
+
+.input_search {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    width: 330px;
+    height: 40px;
+    margin-right: 16px;
+}
+
+.selection {
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    width: 180px;
     padding-left: 24px;
+    margin-right: 24px;
 }
 
-.table-header .table-row {
-    justify-content: center;
-}
-
-.table-header .employee-code {
-    justify-content: start;
+.content-refresh {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #bbb;
 }
 
 .table-content {
-    display: grid;
-    grid-template-columns: 100px repeat(4, 2fr);
-    grid-template-rows: repeat(12, 1fr);
-    background-color: #fff;
-}
-
-.check-box {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-left: 20px;
+    flex-direction: column;
+    font-size: 16px;
+    flex: 1;
 }
 
-.table-checkbox {
-    width: 20px;
-    height: 20px;
+.table-header {
+    font-weight: bold;
+    margin-top: 16px;
+    font-size: 16px;
+    height: 48px;
+    align-items: center;
+
+}
+
+.table-info {
+    border-top: 1px solid #bbb;
+}
+
+.table-info .row {
+    align-items: center;
+    padding: 8px 0 8px 0;
+    border-bottom: 1px solid #bbb;
+    height: 48px;
+}
+
+.employee-code,
+.dateofbirth,
+.phonenumber {
+    flex-basis: 130px;
+}
+
+.fullname,
+.salary {
+    flex-basis: 160px;
+}
+
+.gender {
+    width: 100px;
+}
+
+.email {
+    flex-basis: 300px;
+}
+
+.position,
+.department {
+    flex-basis: 180px;
+}
+
+.status {
+    padding-left: 16px;
+    justify-content: flex-end;
+    flex: auto;
 }
 
 .table-footer {
@@ -634,11 +731,12 @@
 
 .footer-left {
     display: flex;
-    width: 23%;
+    width: 35%;
 }
 
 .footer-center {
     justify-content: space-around;
+    width: 30%;
 }
 
 .footer-button {
@@ -650,7 +748,8 @@
 }
 
 .footer-right {
-    width: 15%;
+    width: 35%;
+    text-align: end;
 }
 
 .footer-right select {
@@ -661,7 +760,7 @@
 .page-number .footer-button {
     border: 1px solid #bbb;
     border-radius: 100%;
-    margin: 0 5px;
+    /* margin: 0 5px; */
 }
 
 .page-number .footer-button:first-child {
