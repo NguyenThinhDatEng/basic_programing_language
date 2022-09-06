@@ -1,0 +1,76 @@
+select, input {
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+    padding-left: 16px;
+    font-size: 16px;
+    /* margin-bottom: 16px; */
+}
+
+input::placeholder {
+    font-size: 11px;
+}
+
+.input {
+    color: black;
+    font-size: 13px;
+}
+
+.input:focus {
+    border-color: #019160;
+    font-size: 13px;
+}
+
+.input-err {
+    color: black;
+    border-color: #FF4747;
+}
+
+.input-date {
+    display: flex;
+    width: 50%;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+}
+
+.input-date .input {
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-date .date {
+    width: calc(100% - 40px);
+    margin-bottom: 0;
+    border-right: 1px solid #bbb;
+}
+
+.input-date__icon {
+    width: 40px !important;
+    height: 40px !important;
+    border: none !important;
+}
+
+.input-select {
+    margin-bottom: 16px;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+.input-salary {
+    text-align: right;
+}
+
+.input-search {
+    margin-right: 16px;
+    width: 330px;
+    height: 40px;
+}
+
+.select {
+    width: 220px;
+    padding-left: 24px;
+    margin-right: 24px;
+    background-color: #fff;
+}

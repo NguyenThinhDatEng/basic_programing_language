@@ -1,0 +1,59 @@
+@font-face {
+    font-family: MISA Black;
+    src: url(../assets/font/GoogleSans-Black.otf);
+}
+
+@font-face {
+    font-family: MISA Black Italic;
+    src: url(../assets/font/GoogleSans-BlackItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Bold;
+    src: url(../assets/font/GoogleSans-Bold.otf);
+}
+
+@font-face {
+    font-family: MISA Bold Italic;
+    src: url(../assets/font/GoogleSans-BoldItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Italic;
+    src: url(../assets/font/GoogleSans-Italic.otf);
+}
+
+@font-face {
+    font-family: MISA Light;
+    src: url(../assets/font/GoogleSans-Light.otf);
+}
+
+@font-face {
+    font-family: MISA Light Italic;
+    src: url(../assets/font/GoogleSans-LightItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Medium;
+    src: url(../assets/font/GoogleSans-Medium.otf);
+}
+
+@font-face {
+    font-family: MISA Medium Italic;
+    src: url(../assets/font/GoogleSans-MediumItalic.otf);
+}
+
+@font-face {
+    font-family: MISA Regular;
+    src: url(../assets/font/GoogleSans-Regular.otf);
+}
+
+@font-face {
+    font-family: MISA Thin;
+    src: url(../assets/font/GoogleSans-Thin.otf);
+}
+
+@font-face {
+    font-family: MISA Thin Italic;
+    src: url(../assets/font/GoogleSans-ThinItalic.otf);
+}

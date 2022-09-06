@@ -1,0 +1,67 @@
+:root {
+    --dir__icons: "../../assets/icons/"
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.icon-add {
+    background-image: url(../../assets/icons/add.png);
+}
+
+.icon-save {
+    background-image: url(../../assets/icons/floppy-disk.png);
+}
+
+.icon-search {
+    background-image: url(../../assets/icons/search.png);
+}
+
+.icon-checked {    
+    background-image: url(../../assets/icons/check.png);
+}
+
+.icon-err {
+    background-image: url(../../assets/icons/cross.png);
+}
+
+.icon-x {
+    background-image: url(../../assets/icons/x.svg);
+}
+
+.icon-warning {
+    background-image: url(../../assets/icons/warning.png);
+}
+
+.icon-calendar {
+    background-image: url(../../assets/icons/calendar.png);
+}
+
+.icon-avatar {
+    width: 100%;
+    height: 256px;
+    background-image: url(../../assets/icons/user-256px.png);
+}
+
+.icon-staff-info {
+    background-position-x: 40px;
+    padding-left: 64px;
+    padding-right: 40px;
+}
+
+.icon-menu_9_dots {
+    margin-left: 16px;
+    margin-right: 10px;
+    background-image: url(../../assets/icons/dots-menu.png);
+}
+
+.icon-user {
+    margin-right: 16px;
+    background-image: url(../../assets/icons/avatar-default-24px.png);
+}

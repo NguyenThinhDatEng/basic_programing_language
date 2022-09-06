@@ -1,0 +1,27 @@
+.combobox {
+    position: relative;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    outline: none;
+    padding-left: 16px;
+    height: 40px;
+    width: 10%;
+    font-size: 13px;
+    background-color: transparent;
+}
+
+select:invalid {
+    color: #bbb;
+}
+
+option:checked { 
+    background: #e5e5e5;
+}
+
+option:hover {
+    background-color: #019160;
+}
+
+option {
+    color: black;
+}

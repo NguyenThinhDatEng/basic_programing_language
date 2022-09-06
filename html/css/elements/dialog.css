@@ -1,0 +1,71 @@
+.dialog {
+    /*fixed*/
+    position: absolute;
+    border-radius: 4px;
+    /* center the screen */
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    min-width: 400px;
+    max-width: 500px;
+    box-shadow: 0 3px 6px #000;
+}
+
+.dialog__button:hover {
+    background-color: #bbb;
+}
+
+.dialog__header {
+    padding: 24px;
+
+    font-family: MISA bold;
+    background-color: #fff;
+}
+
+.dialog__content {
+    position: relative;
+    font-family: MISA Light;
+    padding-bottom: 24px;
+    padding-right: 24px;
+    background-color: #fff;
+}
+
+.dialog__icon {
+    float: left;
+    transform: translate(50%, 0%);
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: rgb(239, 237, 237);
+}
+
+.dialog_text {
+    padding-left: 82px;
+}
+
+.dialog__footer {
+    position: relative;
+    border-radius: 0 0 4px 4px;
+    height: 60px;
+    background-color: rgb(240, 236, 236);
+}
+
+.dialog-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(-24px, 10px);
+}
+
+.dialog-button-cancel {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(-120%, 10px);
+    color: #000;
+    background-color: rgb(240, 236, 236);
+}
+
+.dialog-button-cancel:hover {
+    background-color: #bbb;
+}
