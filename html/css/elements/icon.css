@@ -44,7 +44,7 @@
 }
 
 .icon-avatar {
-    width: 100%;
+    width: 256px;
     height: 256px;
     background-image: url(../../assets/icons/user-256px.png);
 }
@@ -64,4 +64,12 @@
 .icon-user {
     margin-right: 16px;
     background-image: url(../../assets/icons/avatar-default-24px.png);
+}
+
+.icon-duplicate {
+    background-image: url(../../assets/icons/duplicate-24px.png);
+}
+
+.icon-remove {
+    background-image: url(../../assets/icons/delete-24px.png);
 }

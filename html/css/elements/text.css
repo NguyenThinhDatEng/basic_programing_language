@@ -21,6 +21,10 @@
     width: 100%;
 }
 
+#p-uTitle {
+    margin-top: 0;
+}
+
 #t1 {
     font-family: MISA Black;
 }

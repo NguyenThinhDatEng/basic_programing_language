@@ -16,8 +16,14 @@
     width: 100%;
 }
 
+.row-selected { 
+    background-color: rgb(240, 236, 236);
+}
+
 .contents {
     display: flex;
+    padding-left: 24px;
+    width: 100%;
 }
 
 .avatar {
@@ -130,7 +136,7 @@
     align-items: center;
 }
 
-.content-filter-refresh {
+.content-feature {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,10 +147,27 @@
     position: relative;
 }
 
-.content-refresh {
+.other-features {
+    display: flex;
+}
+
+.feature {
+    border: 1px solid #bbb;
     height: 40px;
     width: 40px;
-    border: 1px solid #bbb;
+}
+
+.feature:hover {
+    background-color: #bbb;
+}
+
+.feature:active {
+    background-color: rgb(219, 218, 218);
+}
+
+
+.feature~.feature {
+    margin-left: 4px;
 }
 
 .table-content {
@@ -152,6 +175,7 @@
     flex-direction: column;
     font-size: 16px;
     flex: 1;
+    overflow: auto;
 }
 
 .table-header {
@@ -160,6 +184,7 @@
     font-size: 16px;
     height: 48px;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .table-info {
@@ -173,35 +198,38 @@
     height: 48px;
 }
 
-.employee-code,
-.dateofbirth,
-.phonenumber {
+.EmployeeCode {
+    flex-basis: 120px;
+}
+
+.DateOfBirth,
+.PhoneNumber {
     flex-basis: 130px;
 }
 
-.fullname,
-.salary {
+.FullName,
+.Salary {
     flex-basis: 160px;
 }
 
-.salary {
+.Salary {
     text-align: right;
 }
 
-.gender {
+.Gender {
     width: 100px;
 }
 
-.email {
+.Email {
     flex-basis: 300px;
 }
 
-.position,
-.department {
+.PositionName,
+.DepartmentName {
     flex-basis: 180px;
 }
 
-.status {
+.WorkStatus {
     padding-left: 16px;
     justify-content: flex-end;
     flex: auto;
@@ -258,4 +286,8 @@
 .footer-center,
 .footer-right {
     align-items: center;
+}
+
+#signUp {
+    width: 25%;    
 }

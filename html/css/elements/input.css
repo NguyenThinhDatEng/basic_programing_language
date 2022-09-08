@@ -5,7 +5,7 @@ select, input {
     height: 40px;
     padding-left: 16px;
     font-size: 16px;
-    /* margin-bottom: 16px; */
+    margin-bottom: 16px;
 }
 
 input::placeholder {
@@ -32,6 +32,7 @@ input::placeholder {
     width: 50%;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
+    margin-bottom: 16px;
 }
 
 .input-date .input {

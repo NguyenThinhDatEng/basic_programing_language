@@ -56,9 +56,9 @@
             <div class="content-header">
                 <div class="title-creation">
                     <h2>Danh sách nhân viên</h2>
-                    <button class="button-icon button button-icon__add">Create new staff</button>
+                    <button class="button button__icon icon-add">Thêm nhân viên</button>
                 </div>
-                <div class="content-filter-refresh">
+                <div class="content-feature">
                     <div class="content-filter">
                         <input type="text" class="input input-search button__icon icon-search"
                             placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại">
@@ -69,155 +69,29 @@
                             <option>Tất cả vị trí</option>
                         </select>
                     </div>
-                    <button class="content-refresh icon"><i class="fa-light fa-arrows-rotate"></i></button>
+                    <div class="other-features">
+                        <button class="feature icon icon-remove"></button>
+                        <button id="btnDuplicate" class="feature icon icon-duplicate"></button>
+                        <button id="btnRefresh" class="feature icon"><i class="fa-light fa-arrows-rotate"></i></button>
+                    </div>
                 </div>
             </div>
             <!-- table content -->
             <div class="table-content">
                 <!-- table header -->
                 <div class="table-header row">
-                    <div class="employee-code">Mã nhân viên</div>
-                    <div class="fullname">Họ và tên</div>
-                    <div class="gender">Giới tính</div>
-                    <div class="dateofbirth">Ngày sinh</div>
-                    <div class="phonenumber">Điện thoại</div>
-                    <div class="email">Email</div>
-                    <div class="position">Chức vụ</div>
-                    <div class="department">Phòng ban</div>
-                    <div class="salary">Mức lương cơ bản</div>
-                    <div class="status">Tình trạng công việc</div>
+                    <div propValue="EmployeeCode" class="EmployeeCode">Mã nhân viên</div>
+                    <div propValue="FullName" class="FullName">Họ và tên</div>
+                    <div propValue="Gender" class="Gender">Giới tính</div>
+                    <div propValue="DateOfBirth" format="date" class="DateOfBirth">Ngày sinh</div>
+                    <div propValue="PhoneNumber" class="PhoneNumber">Điện thoại</div>
+                    <div propValue="Email" class="Email">Email</div>
+                    <div propValue="PositionName" class="PositionName">Chức vụ</div>
+                    <div propValue="DepartmentName" class="DepartmentName">Phòng ban</div>
+                    <div propValue="Salary" format="money" class="Salary">Mức lương cơ bản</div>
+                    <div propValue="WorkStatus" class="WorkStatus">Tình trạng công việc</div>
                 </div>
                 <div class="table-info">
-                    <!-- row 1 -->
-                    <div class="row">
-                        <div class="employee-code">NV 598762</div>
-                        <div class="fullname">Nguyễn Thị Thúy Quỳnh</div>
-                        <div class="gender">Nữ</div>
-                        <div class="dateofbirth">18/11/1890</div>
-                        <div class="phonenumber">0123416719</div>
-                        <div class="email">quynh.ntt194178@sis.hust.edu.vn</div>
-                        <div class="position">Nhân viên Marketing</div>
-                        <div class="department">Phòng nghiên cứu và phát triển</div>
-                        <div class="salary">12.456.789</div>
-                        <div class="status">Đang thử việc</div>
-                    </div>
-                    <!-- row 2 -->
-                    <div class="row">
-                        <div class="employee-code">NV 198762</div>
-                        <div class="fullname">Nguyễn Ngọc Văn</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">24/09/2001</div>
-                        <div class="phonenumber">0923416719</div>
-                        <div class="email">van.abc4178@sis.hust.edu.vn</div>
-                        <div class="position">Nhân viên Marketing</div>
-                        <div class="department">Phòng Marketing</div>
-                        <div class="salary">20.456.789</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 3 -->
-                    <div class="row">
-                        <div class="employee-code">NV 194178</div>
-                        <div class="fullname">Nguyễn Văn Thịnh</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">18/10/2001</div>
-                        <div class="phonenumber">0963689218</div>
-                        <div class="email">thinh.nv194178@sis.hust.edu.vn</div>
-                        <div class="position">Lập trình viên</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">23.000.000</div>
-                        <div class="status">Đang thử việc</div>
-                    </div>
-                    <!-- row 4 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 5 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 6 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 7 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 8 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng nhân sự</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 9 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng kỹ thuật – Công nghệ</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
-                    <!-- row 10 -->
-                    <div class="row">
-                        <div class="employee-code">NV 931527</div>
-                        <div class="fullname">Nguyễn Đình Quân</div>
-                        <div class="gender">Nam</div>
-                        <div class="dateofbirth">23/7/2001</div>
-                        <div class="phonenumber">0963312218</div>
-                        <div class="email">quan.nd@sis.hust.edu.vn</div>
-                        <div class="position">Giám đốc</div>
-                        <div class="department">Phòng nhân sự</div>
-                        <div class="salary">56.000.000</div>
-                        <div class="status">Đang làm việc</div>
-                    </div>
                 </div>
             </div>
             <!-- table footer -->
@@ -243,6 +117,147 @@
                     10 nhân viên/trang
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- pop-up create a new staff -->
+    <div id="newEmployee" class="pop-up__backgroud" style="display: none">
+        <div class="pop-up">
+            <div class="pop-up__icon icon icon-x"></div>
+            <div class="pop-up__header">STAFF INFORMATION</div>
+            <div class="contents">
+                <!-- avatar -->
+                <div class="avatar">
+                    <div class="icon icon-avatar"></div>
+                    <p>(Please choose .jpg .jpeg .png .gif image)</p>
+                </div>
+                <!-- information -->
+                <div class="pop-up__content">
+                    <!-- row 1 -->
+                    <h3 id="p-uTitle" class="row pop-up__title">A. General Information:</h3>
+                    <!-- row 2 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Mã nhân viên (<label style="color:red">*</label>)</label>
+                            <input propValue="EmployeeCode" id="employeeCode" type="text" class="input" mandatory>
+                        </div>
+                        <div class="box-right">
+                            <label for="">Họ và tên (<label style="color:red">*</label>)</label>
+                            <input propValue="FullName" type="text" class="input" mandatory>
+                        </div>
+                    </div>
+                    <!-- row 3 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="dateofbirth">Ngày sinh</label>
+                            <input propValue="DateOfBirth" date type="date" id="dateofbirth" class="input">
+                        </div>
+                        <div class="box-right">
+                            <label for="gender">Giới tính</label>
+                            <Select id="gender" propValue="Gender" class="input-select">
+                                <option value="0">Nam</option>
+                                <option value=1>Nu</option>
+                                <option value=2>Khong xac dinh</option>
+                            </Select>
+                        </div>
+                    </div>
+                    <!-- row 4 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Số căn cước công dân (<label style="color:red">*</label>)</label>
+                            <input type="text" propValue="IdentityNumber" class="input" mandatory>
+                        </div>
+                        <div class="box-right">
+                            <label for="date">Ngày cấp</label>
+                            <input type="date" id="date" propValue="IdentityDate" date class="input" value="2022-01-01">
+                        </div>
+                    </div>
+                    <!-- row 5 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Nơi cấp</label>
+                            <input type="text" propValue="IdentityPlace" class="input">
+                        </div>
+                    </div>
+                    <!-- row 6 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Email (<label style="color:red">*</label>)</label>
+                            <input type="text" propValue="Email" class="input" mandatory email>
+                        </div>
+                        <div class="box-right">
+                            <label for="">Số điện thoại (<label style="color:red">*</label>)</label>
+                            <input type="text" propValue="PhoneNumber" class="input" mandatory>
+                        </div>
+                    </div>
+                    <!-- row 7 -->
+                    <h3 class="row pop-up__title">B. Work Information</h3>
+                    <!-- row 8 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="position">Vị trí</label>
+                            <Select id="position" propValue="PositionName" class="input-select">
+                                <option value="0">Giám đốc</option>
+                            </Select>
+                        </div>
+                        <div class="box-right">
+                            <label for="department">Phòng ban</label>
+                            <Select id="department" propValue="DepartmentName" class="input-select">
+                                <option value="0">Phòng nhân sự</option>
+                            </Select>
+                        </div>
+                    </div>
+                    <!-- row 9 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Mã số thuế cá nhân</label>
+                            <input type="text" propValue="PersonalTaxCode" class="input">
+                        </div>
+                        <div class="box-right">
+                            <label for="">Mức lương cơ bản</label>
+                            <input type="text" propValue="Salary" class="input input-salary">
+                        </div>
+                    </div>
+                    <!-- row 10 -->
+                    <div class="row input-box">
+                        <div class="box-left">
+                            <label for="">Ngày gia nhập công ty</label>
+                            <input type="date" propValue="JoinDate" date class="input">
+                        </div>
+                        <div class="box-right">
+                            <label for="">Tình trạng công việc</label>
+                            <Select id="" propValue="WorkStatus" class="input-select">
+                                <option value="0">Đang làm việc</option>
+                                <option value="1">Đã nghỉ việc</option>
+                            </Select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer -->
+            <div class="pop-up__footer">
+                <button id="btnCancel" class="button button-cancel">Hủy</button>
+                <button class="button button__icon icon-save icon-staff-info">Lưu</button>
+            </div>
+        </div>
+    </div>
+    <!-- pop up sign up -->
+    <div id="warning" class="pop-up__backgroud" style="display: none">
+        <div id="pop-up-warning" class="pop-up">
+                <div class="pop-up__icon icon icon-x"></div>
+                <div class="pop-up__header">Xóa bản ghi</div>
+                <div class="dialog__content">
+                    <div class="dialog__icon icon icon-warning"></div>
+                    <div class="dialog_text"></div>
+                </div>
+                <div class="pop-up__footer">
+                    <button id="btnCancel" class="button button-cancel">Không</button>
+                    <button id="btnOK" class="button">Có</button>
+                </div>
+        </div>
+    </div>
+    <!-- javascript -->
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/pages/employee.js"></script>
 </body>
 
 </html>
