@@ -80,16 +80,16 @@
             <div class="table-content">
                 <!-- table header -->
                 <div class="table-header row">
-                    <div propValue="EmployeeCode" class="EmployeeCode">Mã nhân viên</div>
-                    <div propValue="FullName" class="FullName">Họ và tên</div>
-                    <div propValue="Gender" class="Gender">Giới tính</div>
-                    <div propValue="DateOfBirth" format="date" class="DateOfBirth">Ngày sinh</div>
-                    <div propValue="PhoneNumber" class="PhoneNumber">Điện thoại</div>
-                    <div propValue="Email" class="Email">Email</div>
-                    <div propValue="PositionName" class="PositionName">Chức vụ</div>
-                    <div propValue="DepartmentName" class="DepartmentName">Phòng ban</div>
-                    <div propValue="Salary" format="money" class="Salary">Mức lương cơ bản</div>
-                    <div propValue="WorkStatus" class="WorkStatus">Tình trạng công việc</div>
+                    <div propValue="employeeCode" class="employeeCode">Mã nhân viên</div>
+                    <div propValue="fullName" class="fullName">Họ và tên</div>
+                    <div propValue="gender" format="gender" class="gender">Giới tính</div>
+                    <div propValue="dateOfBirth" format="date" class="dateOfBirth">Ngày sinh</div>
+                    <div propValue="phoneNumber" class="phoneNumber">Điện thoại</div>
+                    <div propValue="email" class="email">Email</div>
+                    <div propValue="positionName" class="positionName">Chức vụ</div>
+                    <div propValue="departmentName" class="departmentName">Phòng ban</div>
+                    <div propValue="salary" format="money" class="salary">Mức lương cơ bản</div>
+                    <div propValue="workStatus" format="workStatus" class="workStatus">Tình trạng công việc</div>
                 </div>
                 <div class="table-info">
                 </div>
@@ -105,7 +105,7 @@
                     <button class="footer-button"><i class="fa-solid fa-chevrons-left"></i></button>
                     <button class="footer-button"><i class="fa-solid fa-angle-left"></i></button>
                     <div class="page-number">
-                        <button class="footer-button">1</button>
+                        <button class="footer-button page-number--selected">1</button>
                         <button class="footer-button">2</button>
                         <button class="footer-button">3</button>
                         <button class="footer-button">4</button>
@@ -114,13 +114,18 @@
                     <button class="footer-button"><i class="fa-solid fa-chevrons-right"></i></button>
                 </div>
                 <div class="footer-right">
-                    10 nhân viên/trang
+                    <select name="pageSize" id="pageSize" class="pageSize">
+                        <option value="10">10 nhân viên/trang</option>
+                        <option value="15">15 nhân viên/trang</option>
+                        <option value="20">20 nhân viên/trang</option>
+                        <option value="20">25 nhân viên/trang</option>
+                    </select>
                 </div>
             </div>
         </div>
     </div>
     <!-- pop-up create a new staff -->
-    <div id="newEmployee" class="pop-up__backgroud" style="display: none">
+    <div id="newEmployee" class="pop-up__background" style="display: none">
         <div class="pop-up">
             <div class="pop-up__icon icon icon-x"></div>
             <div class="pop-up__header">STAFF INFORMATION</div>
@@ -138,25 +143,24 @@
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Mã nhân viên (<label style="color:red">*</label>)</label>
-                            <input propValue="EmployeeCode" id="employeeCode" type="text" class="input" mandatory>
+                            <input propValue="employeeCode" id="employeeCode" type="text" class="input" mandatory>
                         </div>
                         <div class="box-right">
                             <label for="">Họ và tên (<label style="color:red">*</label>)</label>
-                            <input propValue="FullName" type="text" class="input" mandatory>
+                            <input propValue="fullName" type="text" class="input" mandatory>
                         </div>
                     </div>
                     <!-- row 3 -->
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="dateofbirth">Ngày sinh</label>
-                            <input propValue="DateOfBirth" date type="date" id="dateofbirth" class="input">
+                            <input propValue="dateOfBirth" date type="date" id="dateofbirth" class="input">
                         </div>
                         <div class="box-right">
                             <label for="gender">Giới tính</label>
-                            <Select id="gender" propValue="Gender" class="input-select">
-                                <option value="0">Nam</option>
-                                <option value=1>Nu</option>
-                                <option value=2>Khong xac dinh</option>
+                            <Select id="gender" propValue="gender" class="input-select">
+                                <option value="1" label="Nam"></option>
+                                <option value="2" label="Nữ"></option>
                             </Select>
                         </div>
                     </div>
@@ -164,29 +168,29 @@
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Số căn cước công dân (<label style="color:red">*</label>)</label>
-                            <input type="text" propValue="IdentityNumber" class="input" mandatory>
+                            <input type="text" propValue="identityNumber" class="input" mandatory>
                         </div>
                         <div class="box-right">
                             <label for="date">Ngày cấp</label>
-                            <input type="date" id="date" propValue="IdentityDate" date class="input" value="2022-01-01">
+                            <input type="date" id="date" propValue="identityIssuedDate" date class="input">
                         </div>
                     </div>
                     <!-- row 5 -->
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Nơi cấp</label>
-                            <input type="text" propValue="IdentityPlace" class="input">
+                            <input type="text" propValue="identityIssuedPlace" class="input">
                         </div>
                     </div>
                     <!-- row 6 -->
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Email (<label style="color:red">*</label>)</label>
-                            <input type="text" propValue="Email" class="input" mandatory email>
+                            <input type="text" propValue="email" class="input" mandatory email>
                         </div>
                         <div class="box-right">
                             <label for="">Số điện thoại (<label style="color:red">*</label>)</label>
-                            <input type="text" propValue="PhoneNumber" class="input" mandatory>
+                            <input type="text" propValue="phoneNumber" class="input" mandatory>
                         </div>
                     </div>
                     <!-- row 7 -->
@@ -195,14 +199,26 @@
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="position">Vị trí</label>
-                            <Select id="position" propValue="PositionName" class="input-select">
-                                <option value="0">Giám đốc</option>
+                            <Select id="position" propValue="positionName" class="input-select">
+                                <option value="Tổng giám đốc">Tổng giám đốc</option>
+                                <option value="Người thiết kế đồ họa">Người thiết kế đồ họa</option>
+                                <option value="Quản lý nhân sự">Quản lý nhân sự</option>
+                                <option value="Giám đốc điều hành">Giám đốc điều hành</option>
+                                <option value="Kiểm soát viên">Kiểm soát viên</option>
+                                <option value="Kế toán">Kế toán</option>
+                                <option value="Lập trình viên">Lập trình viên</option>
                             </Select>
                         </div>
                         <div class="box-right">
                             <label for="department">Phòng ban</label>
-                            <Select id="department" propValue="DepartmentName" class="input-select">
-                                <option value="0">Phòng nhân sự</option>
+                            <Select id="department" propValue="departmentName" class="input-select">
+                                <option value="Phòng tổ chức hành chính">Phòng tổ chức hành chính</option>
+                                <option value="Phòng kế toán">Phòng kế toán</option>
+                                <option value="Phòng nhân sự">Phòng nhân sự</option>
+                                <option value="Phòng hỗ trợ khách hàng">Phòng hỗ trợ khách hàng</option>
+                                <option value="Khối sản xuất">Khối sản xuất</option>
+                                <option value="Phòng kỹ thuật">Phòng kỹ thuật</option>
+                                <option value="Phòng bảo vệ">Phòng bảo vệ</option>
                             </Select>
                         </div>
                     </div>
@@ -210,24 +226,24 @@
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Mã số thuế cá nhân</label>
-                            <input type="text" propValue="PersonalTaxCode" class="input">
+                            <input type="text" propValue="taxCode" class="input">
                         </div>
                         <div class="box-right">
                             <label for="">Mức lương cơ bản</label>
-                            <input type="text" propValue="Salary" class="input input-salary">
+                            <input type="text" salary propValue="salary" class="input input-salary" value="(VND)">
                         </div>
                     </div>
                     <!-- row 10 -->
                     <div class="row input-box">
                         <div class="box-left">
                             <label for="">Ngày gia nhập công ty</label>
-                            <input type="date" propValue="JoinDate" date class="input">
+                            <input type="date" propValue="joinDate" date class="input">
                         </div>
                         <div class="box-right">
                             <label for="">Tình trạng công việc</label>
-                            <Select id="" propValue="WorkStatus" class="input-select">
-                                <option value="0">Đang làm việc</option>
-                                <option value="1">Đã nghỉ việc</option>
+                            <Select id="workStatus" propValue="workStatus" class="input-select">
+                                <option value="1" label="Đang làm việc"></option>
+                                <option value="2" label="Đã nghỉ việc"></option>
                             </Select>
                         </div>
                     </div>
@@ -241,18 +257,31 @@
         </div>
     </div>
     <!-- pop up sign up -->
-    <div id="warning" class="pop-up__backgroud" style="display: none">
+    <div id="warning" class="pop-up__background" style="display: none">
         <div id="pop-up-warning" class="pop-up">
-                <div class="pop-up__icon icon icon-x"></div>
-                <div class="pop-up__header">Xóa bản ghi</div>
-                <div class="dialog__content">
-                    <div class="dialog__icon icon icon-warning"></div>
-                    <div class="dialog_text"></div>
-                </div>
-                <div class="pop-up__footer">
-                    <button id="btnCancel" class="button button-cancel">Không</button>
-                    <button id="btnOK" class="button">Có</button>
-                </div>
+            <div class="pop-up__icon icon icon-x"></div>
+            <div class="pop-up__header">Xóa bản ghi</div>
+            <div class="dialog__content">
+                <div class="dialog__icon icon icon-warning"></div>
+                <div class="dialog_text"></div>
+            </div>
+            <div class="pop-up__footer">
+                <button id="btnCancel" class="button button-cancel">Không</button>
+                <button id="btnOK" class="button">Có</button>
+            </div>
+        </div>
+    </div>
+    <!-- toast list -->
+    <div class="toast-list">
+        <div id="toastOK" class="toast" style="display: none">
+            <div class="icon toast__icon icon-checked"></div>
+            <div class="toast__content"></div>
+            <button id="toast__x" class="icon icon-x"></button>
+        </div>
+        <div id="toastERR" class="toast" style="display: none">
+            <div class="icon toast__icon icon-err"></div>
+            <div class="toast__content"></div>
+            <button id="toast__x" class="icon icon-x"></button>
         </div>
     </div>
     <!-- javascript -->

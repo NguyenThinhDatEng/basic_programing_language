@@ -111,6 +111,11 @@
     height: 40px;
 }
 
+.menu-content:hover {
+    background-color: rgb(240, 236, 236);
+    cursor: pointer;
+}
+
 .menu-header {
     height: 48px;
 }
@@ -198,41 +203,45 @@
     height: 48px;
 }
 
-.EmployeeCode {
+.employeeCode {
     flex-basis: 120px;
 }
 
-.DateOfBirth,
-.PhoneNumber {
+.dateOfBirth,
+.phoneNumber {
     flex-basis: 130px;
 }
 
-.FullName,
-.Salary {
+.fullName,
+.salary {
     flex-basis: 160px;
 }
 
-.Salary {
+.salary {
     text-align: right;
 }
 
-.Gender {
-    width: 100px;
+.gender {
+    width: 130px;
 }
 
-.Email {
+.email {
     flex-basis: 300px;
 }
 
-.PositionName,
-.DepartmentName {
+.positionName {
     flex-basis: 180px;
 }
 
-.WorkStatus {
+.departmentName {
+    flex-basis: 150px;
+}
+
+.workStatus {
     padding-left: 16px;
     justify-content: flex-end;
     flex: auto;
+    text-align: center;
 }
 
 .table-footer {
@@ -253,31 +262,12 @@
     width: 30%;
 }
 
-.footer-button {
-    background-color: transparent;
-    border: none;
-    height: 35px;
-    width: 35px;
-    font-size: 20px;
-}
-
 .footer-right {
     width: 35%;
     text-align: end;
 }
 
-.footer-right select {
-    height: 40px;
-    width: 100%;
-}
-
-.page-number .footer-button {
-    border: 1px solid #bbb;
-    border-radius: 100%;
-    /* margin: 0 5px; */
-}
-
-.page-number .footer-button:first-child {
+.page-number--selected {
     background-color: #019460;
     color: #fff;
 }

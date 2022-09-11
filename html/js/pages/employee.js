@@ -7,85 +7,87 @@ $(document).ready(function () {
 
 var act = null;
 var employeeSelected = null;
+
 /**
  * Lay du lieu tu API
  * Author: Nguyen Van Thinh
  */
-
+// Tải dữ liệu
 function loadData() {
-  // Goi API
-  $.ajax({
-    type: "GET",
-    url: "https://cukcuk.manhnv.net/api/v1/Employees",
-    success: function (employees) {
-      console.log("Loading...");
-      // Xu ly du lieu
-      let cols = $(".table-header div");
-      for (const employee of employees) {
-        let rowOfTable = $('<div class="row"></div>');
-        for (const col of cols) {
-          // Lay ra propValue tương ứng với các cột:
-          const propValue = $(col).attr("propValue");
-          // Lay ra format tương ứng với các cột
-          const format = $(col).attr("format");
-          // Lay thong tin
-          let value = employee[propValue];
-          // Dinh dang (Ngay sinh, muc luong co ban)
-          switch (format) {
-            case "date":
-              value = formatDate(value);
-              break;
-            case "money":
-              if (!value)
-                value = Math.round(Math.random(100) * Math.pow(10, 8));
-              value = formatMoney(value);
-              break;
-            default:
-              break;
+  // Lay pageSize
+  
+    
+  debugger;
+  // Goi API filter
+  try {
+    $.ajax({
+      type: "GET",
+      async: false,
+      url: "http://localhost:9074/api/v1/Employees/",
+      success: function (employees) {
+        console.log("Loading...");
+
+        // Xu ly du lieu
+        let cols = $(".table-header div");
+        for (const employee of employees) {
+          let rowOfTable = $('<div class="row"></div>');
+          for (const col of cols) {
+            // Lay ra propValue tương ứng với các cột:
+            const propValue = $(col).attr("propValue");
+            // Lay ra format tương ứng với các cột
+            const format = $(col).attr("format");
+            // Lay thong tin
+            let value = employee[propValue];
+            // Dinh dang (Ngay sinh, Gioi tinh, Muc luong co ban)
+            if (value) {
+              switch (format) {
+                // Chuyen doi tu so ve chuoi cho gender va workStatus
+                case "gender": {
+                  value = value.toString();
+                  const options = $("#gender option");
+                  for (const opt of options) {
+                    const optValue = $(opt).attr("value");
+                    if (optValue == value) {
+                      value = $(opt).attr("label");
+                      break;
+                    }
+                  }
+                  break;
+                }
+                case "workStatus": {
+                  value = value.toString();
+                  const options = $("#workStatus option");
+                  for (const opt of options) {
+                    const optValue = $(opt).attr("value");
+                    if (optValue == value) {
+                      value = $(opt).attr("label");
+                      break;
+                    }
+                  }
+                  break;
+                }
+                case "date":
+                  value = formatDate(value);
+                  break;
+                case "money":
+                  value = Math.round(value);
+                  value = formatMoney(value);
+                  break;
+                default:
+                  break;
+              }
+            }
+            // Tạo rowHTML:
+            const thHTML = `<div class='${propValue}'>${value || ""}</div>`;
+            rowOfTable.append(thHTML);
           }
-          // Tạo rowHTML:
-          const thHTML = `<div class='${propValue}'>${value || ""}</div>`;
-          rowOfTable.append(thHTML);
+          $(rowOfTable).data("entity", employee); // init data() of row
+          $(".table-info").append(rowOfTable);
         }
-        $(rowOfTable).data("entity", employee); // init data() of row
-        $(".table-info").append(rowOfTable);
-      }
-    },
-  });
-}
-
-/**
- * Dinh dang hien thi ngay/thang/nam
- * @param {Date} date
- * @returns
- * Author: Nguyen Van Thinh
- */
-function formatDate(date) {
-  try {
-    if (date) {
-      date = new Date(date);
-      // Lay ngay
-      let day = date.getDate();
-      day = day <= 9 ? `0${day}` : day;
-      // Lay thang
-      let month = date.getMonth() + 1;
-      month = month <= 9 ? `0${month}` : month;
-      // Lay nam
-      const year = date.getFullYear();
-      return `${day}/${month}/${year}`;
-    }
+      },
+    });
   } catch (error) {
-    console.log("formatDate\n", error);
-  }
-}
-
-// Thông tin mức lương khi nhập cần được định dạng hiển thị tiền tệ: VD 2.000.000
-function formatMoney(salary) {
-  try {
-    money = new Intl.NumberFormat("de-DE").format(salary);
-    return money;
-  } catch (error) {
-    console.log("formatMoney\n", error);
+    errorMessage("Có lỗi xảy ra", error);
   }
 }
 
@@ -102,14 +104,14 @@ function initEvent() {
     // Hien thi pop-up
     $("#newEmployee").show();
 
-    // Ngày sinh/ Ngày cấp/ Ngày gia nhập công ty không được phép lớn hơn ngày hiện tại và phải định dạng hiển thị là ngày/tháng/năm
-    $("input[date]").attr("max", limitDate());
-
-    // Xoa du lieu neu co
+    // Lam sach cac o inputs
     const inputs = $("#newEmployee select, #newEmployee input");
     for (const input of inputs) {
       input.value = "";
     }
+
+    // Ngày sinh/ Ngày cấp/ Ngày gia nhập công ty nho hon hoang bang ngày hiện tại
+    $("input[date]").attr("max", limitDate());
 
     // Mã nhân viên tự động có và tự tăng theo tiêu chí: “NV” + mã số nhân viên lớn nhất trong hệ thống + 1
     $.ajax({
@@ -148,13 +150,6 @@ function initEvent() {
     });
   });
 
-  // click vao 1 dong trong bang
-  $(document).on("click", ".table-info .row", function () {
-    $(this).siblings().removeClass("row-selected");
-    $(this).addClass("row-selected");
-    employeeSelected = $(this).data().entity;
-  });
-
   // click vao nut lam moi
   $("#btnRefresh").click(function () {
     loadData();
@@ -168,12 +163,19 @@ function initEvent() {
     if (!employeeSelected) return;
     $("#warning").show();
     $("#warning .dialog_text").empty();
-    let txt = `Bạn có chắc chắn muốn xóa nhân viên <b>${employeeSelected.EmployeeCode}</b> không?`;
+    let txt = `Bạn có chắc chắn muốn xóa nhân viên <b>${employeeSelected.employeeCode}</b> không?`;
     $("#warning .dialog_text").append(txt);
   });
 
-  // click vao nut Co
+  // click vao nut "Co"
   $("#btnOK").click(deleteData);
+
+  // click vao 1 dong trong bang
+  $(document).on("click", ".table-info .row", function () {
+    $(this).siblings().removeClass("row-selected");
+    $(this).addClass("row-selected");
+    employeeSelected = $(this).data().entity;
+  });
 
   // double click vao 1 dong trong bang
   $(document).on("dblclick", ".table-info .row", function () {
@@ -196,8 +198,12 @@ function initEvent() {
   });
 
   // click nut x
-  $(".icon-x").click(function () {
-    $(this).parents(".pop-up__backgroud").hide(); // parents > siblings > find
+  $(".pop-up__background .icon-x").click(function () {
+    $(this).parents(".pop-up__background").hide();
+  });
+
+  $(".toast .icon-x").click(function () {
+    $(this).parents(".toast").hide();
   });
 
   // click nut luu
@@ -205,81 +211,15 @@ function initEvent() {
 
   // click nut cancel
   $(".button-cancel").click(function () {
-    $(this).parents(".pop-up__backgroud").hide();
+    $(this).parents(".pop-up__background").hide();
   });
 
-  // Luu nhan vien vao database
-  function saveData() {
-    // Thu thap du lieu
-    let employee = {};
-    const inputs = $("#newEmployee select, #newEmployee input");
-    for (const input of inputs) {
-      let val = input.value;
-      if (val) {
-        const propValue = $(input).attr("propValue");
-        employee[propValue] = val;
-      }
-    }
-    employee = JSON.stringify(employee);
-    // Goi API
-    if (act == "create") {
-      $.ajax({
-        type: "POST",
-        url: "https://cukcuk.manhnv.net/api/v1/Employees",
-        data: employee,
-        dataType: "json",
-        contentType: "application/json",
-        success: function (response) {
-          console.log("Them moi thanh cong!");
-        },
-      });
-    } else {
-      $.ajax({
-        type: "PUT",
-        url: "https://cukcuk.manhnv.net/api/v1/Employees/" + employeeSelected.EmployeeId,
-        data: employee,
-        dataType: "json",
-        contentType: "application/json",
-        success: function (response) {
-          console.log("Chinh sua thanh cong!");
-        },
-      });
-    }
-    $(this).parents(".pop-up__backgroud").hide();
-    loadData();
-  }
-
-  // Tính năng Nhân bản
-  function duplicateData() {
-    act = "create";
-    if (!employeeSelected) return;
-    // Hien thi pop-up
-    $("#newEmployee").show();
-    // Thu thap thong tin
-    const inputs = $("#newEmployee select, #newEmployee input");
-    for (const input of inputs) {
-      const propValue = $(input).attr("propValue");
-      input.value = employeeSelected[propValue];
-    }
-    deleteData();
-  }
-
-  // Xoa nhan vien khoi database
-  function deleteData() {
-    // Goi API DELETE
-    $.ajax({
-      type: "DELETE",
-      url:
-        "https:/cukcuk.manhnv.net/api/v1/Employees/" +
-        employeeSelected.EmployeeId,
-      success: function (response) {
-        console.log("Xoa thanh cong!");
-        loadData();
-      },
-    });
-    // An pop-up
-    $("#warning").hide();
-  }
+  // click vao so trang
+  $(".page-number button").click(function () {
+    $(this).siblings().removeClass("page-number--selected");
+    $(this).addClass("page-number--selected");
+    employeeSelected = $(this).data().entity;
+  });
 
   // Validate
   function checkEmailFormat(email) {
@@ -287,7 +227,7 @@ function initEvent() {
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return email.match(re);
   }
-  
+
   // Gioi han ngay nhap
   function limitDate() {
     let today = new Date();
@@ -308,41 +248,184 @@ function initEvent() {
   }
 }
 
-// for (const val of data) {
-//   const employeeCode = val.EmployeeCode;
-//   const fullName = val.FullName;
-//   const gender = val.Gender;
-//   // Lay thong tin ngay sinh va dinh dang theo ngay/thang/nam
-//   let dateOfBirth = val.DateOfBirth;
-//   dateOfBirth = formatDate(dateOfBirth);
-//   // Thon tin con lai
-//   const phoneNumber = val.PhoneNumber;
-//   const email = val.Email;
-//   const positionName = val.PositionName;
-//   const departmentName = val.DepartmentName;
-//   // all of salary info are empty
-//   let salary = Math.round(Math.random(100) * Math.pow(10, 8));
-//   salary = formatMoney(salary)
+/**
+ * Hàm thực thi
+ * Comment: Thực hiện tính năng
+ */
+// Luu nhan vien vao database
+function saveData() {
+  // Thu thap du lieu
+  let employee = {};
+  const inputs = $("#newEmployee select, #newEmployee input");
+  for (const input of inputs) {
+    let val = input.value;
+    const propValue = $(input).attr("propValue");
+    employee[propValue] = val ? val : "";
+  }
 
-//   const workStatus = val.WorkStatus;
-//   // Build thanh cac dong html tuong ung
-//   const rowHTML = `
-//   <div class="row">
-//       <div class="employee-code">${employeeCode}</div>
-//       <div class="fullname">${fullName}</div>
-//       <div class="gender">${gender || ""}</div>
-//       <div class="dateofbirth">${dateOfBirth || ""}</div>
-//       <div class="phonenumber">${phoneNumber || ""}</div>
-//       <div class="email">${email || ""}</div>
-//       <div class="position">${positionName || ""}</div>
-//       <div class="department">${departmentName || ""}</div>
-//       <div class="salary">${salary || ""}</div>
-//       <div class="status">${workStatus || ""}</div>
-//   </div>`;
-//   // Them row vào class table-info
-//   $(".table-info").append(rowHTML);
-// }
+  employee["createdBy"] = "";
+  employee["modifiedBy"] = "";
+  if (employee.dateOfBirth == "") delete employee.dateOfBirth;
+  if (employee.identityIssuedDate == "") delete employee.identityIssuedDate;
+  if (employee.gender == "") delete employee.gender;
+  if (employee.workStatus == "") delete employee.workStatus;
+  if (employee.salary == "") delete employee.salary;
 
-// fetch(api_url)
-//     .then((response) => response.json())
-//     .then((employees) => {})
+  employee = JSON.stringify(employee);
+  // Kiem tra tinh dung dan cua du lieu
+  if (
+    !employee.employeeCode ||
+    !employee.fullName ||
+    !employee.identityNumber ||
+    !employee.email ||
+    !employee.phoneNumber
+  ) {
+    errorMessage("Điền thiếu thông tin bắt buộc");
+    const inputs = $("input[mandatory]");
+    for (const input of inputs) {
+      const value = input.value;
+      if (!value) {
+        $(input).addClass("input-err");
+        $(input).attr("title", "Thông tin bắt buộc");
+      } else {
+        $(input).removeClass("input-err");
+        $(input).removeAttr("title");
+      }
+    }
+    return;
+  }
+  // Goi API
+  if (act == "create") {
+    try {
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:9074/api/v1/Employees/",
+        data: employee,
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response) {
+          successMessage(`Thêm mới thành công`);
+        },
+      });
+    } catch (error) {
+      errorMessage("Có lỗi xảy ra", error);
+    }
+  } else {
+    try {
+      $.ajax({
+        type: "PUT",
+        url:
+          "http://localhost:9074/api/v1/Employees/" +
+          employeeSelected.employeeID,
+        data: employee,
+        dataType: "json",
+        contentType: "application/json",
+        success: function (response) {
+          successMessage(`Chỉnh sửa thành công`);
+        },
+      });
+    } catch (error) {
+      errorMessage("Có lỗi xảy ra", error);
+    }
+  }
+  $(this).parents(".pop-up__background").hide();
+  loadData();
+}
+
+// Tính năng Nhân bản
+function duplicateData() {
+  act = "create";
+  if (!employeeSelected) return;
+  // Hien thi pop-up
+  $("#newEmployee").show();
+  // Thu thap thong tin
+  const inputs = $("#newEmployee select, #newEmployee input");
+  for (const input of inputs) {
+    const propValue = $(input).attr("propValue");
+    input.value = employeeSelected[propValue];
+  }
+  deleteData();
+}
+
+// Xoa nhan vien khoi database
+function deleteData() {
+  // Goi API DELETE
+  try {
+    $.ajax({
+      type: "DELETE",
+      url:
+        "http://localhost:9074/api/v1/Employees/" + employeeSelected.employeeID,
+      success: function (response) {
+        successMessage("Xóa thành công");
+      },
+    });
+  } catch (error) {
+    errorMessage("Có lỗi xảy ra", error);
+  }
+
+  // An pop-up
+  $("#warning").hide();
+}
+
+/**
+ * Hàm định dạng dữ liệu
+ */
+
+// Dinh dang hien thi ngay/thang/nam
+function formatDate(date) {
+  try {
+    if (date) {
+      date = new Date(date);
+      // Lay ngay
+      const year = date.getFullYear();
+      if (year == 1) return null;
+      let day = date.getDate();
+      day = day <= 9 ? `0${day}` : day;
+      // Lay thang
+      let month = date.getMonth() + 1;
+      month = month <= 9 ? `0${month}` : month;
+      // Lay nam
+      return `${day}/${month}/${year}`;
+    }
+  } catch (error) {
+    errorMessage("Có lỗi xảy ra");
+    console.log("formatDate\n", error);
+  }
+}
+
+// Thông tin mức lương khi nhập cần được định dạng hiển thị tiền tệ: VD 2.000.000
+function formatMoney(salary) {
+  try {
+    money = new Intl.NumberFormat("de-DE").format(salary);
+    return money;
+  } catch (error) {
+    errorMessage("Có lỗi xảy ra");
+    console.log("formatMoney\n", error);
+  }
+}
+
+/**
+ * Hàm thông báo toast
+ */
+
+function successMessage(content) {
+  // tien xu ly
+  const element = $("#toastOK");
+  element.show();
+  element.find(".toast__content").empty();
+  // Them noi dung
+  element.find(".toast__content").append(content);
+  // in ra console
+  console.log(content + "!");
+}
+
+function errorMessage(content, error) {
+  // tien xu ly
+  const element = $("#toastERR");
+  element.show();
+  element.find(".toast__content").empty();
+  // Them noi dung
+  element.find(".toast__content").append(content);
+  // in ra console
+  if (error) console.log(error);
+}

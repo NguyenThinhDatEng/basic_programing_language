@@ -5,15 +5,14 @@
 }
 
 .toast {
-    position: relative;
-    bottom: 16px;
-    right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     border-radius: 4px;
     height: 48px;
     width: 250px;
-    line-height: 48px;
     box-shadow: 0px 3px 6px #000;
-    /*vertically center*/
+    background: #fff;
 }
 
 .toast+.toast {
@@ -21,29 +20,12 @@
     margin-top: 10px;
 }
 
-.toast__icon {
-    float: left;
-    transform: translate(50%, 50%);
-}
-
 .toast__content {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
-    margin-left: 42px;
-    font-family: MISA Regular;
+    font-weight: bold;
 }
 
-.toast__button {
-    position: absolute;
-    background-image: url(../assets/icons/x.svg);
-    width: 24px;
-    height: 24px;
-    right: 0px;
-    top: 0px;
-    transform: translate(-50%, 50%);
-}
-
-.toast__button:hover {
-    background-color: #BBBBBB;
-    cursor: pointer;
-    border-radius: 4px;
+#toast__x:hover {
+    background-color: #bbb;
 }

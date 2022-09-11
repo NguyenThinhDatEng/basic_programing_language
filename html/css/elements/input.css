@@ -75,3 +75,8 @@ input::placeholder {
     margin-right: 24px;
     background-color: #fff;
 }
+
+.footer-right select {
+    height: 40px;
+    width: 50%;
+}
