@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs UI</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      padding: 0 20%;
+    }
+
+    .flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .tab-item {
+      padding: 10px 40px;
+      opacity: 0.5;
+      color: #ea4c89;
+    }
+
+    .tab-item.active {
+      color: #000;
+      opacity: 1;
+    }
+
+    .tab-item:hover {
+      border-bottom: 5px solid #f8d9e5;
+      padding-bottom: 5px;
+      opacity: 1;
+      color: #000;
+      background-color: #f9f0f3;
+      cursor: pointer;
+    }
+
+    .align-items-center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .tabs {
+      position: relative;
+      justify-content: space-between;
+    }
+
+    .content-item h1 {
+      margin: 0;
+    }
+
+    .content-item {
+      display: none;
+      padding-top: 10px;
+    }
+
+    .content-item.active {
+      display: block !important;
+    }
+
+    .line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      background-color: #ea4c89;
+      height: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- https://dribbble.com/shots/14483921 -->
+  <div class="container">
+    <div class="flex-column container-content">
+      <div class="tabs flex-column">
+        <div class="flex-row">
+          <div class="tab-item active">React</div>
+          <div class="tab-item">Angular</div>
+          <div class="tab-item">Ember</div>
+          <div class="tab-item">Vuejs</div>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div class="content">
+        <div class="content-item active">
+          <h1 class="title">
+            React
+          </h1>
+          <div class="description">
+            React là một thư viện JavaScript front-end mã nguồn mở và miễn phí để xây dựng giao diện người dùng dựa trên
+            các thành phần UI riêng lẻ. Nó được phát triển và duy trì bởi Meta và cộng đồng các nhà phát triển và công
+            ty cá nhân
+          </div>
+        </div>
+        <div class="content-item">
+          <h1 class="title">
+            Angular
+          </h1>
+          <div class="description">
+            Được dịch từ tiếng Anh-Angular là một khung ứng dụng web mã nguồn mở, miễn phí và dựa trên TypeScript được
+            dẫn dắt bởi Nhóm Angular tại Google và bởi một cộng đồng các cá nhân và tập đoàn. Angular được viết lại hoàn
+            toàn từ cùng một nhóm đã xây dựng AngularJS
+          </div>
+        </div>
+        <div class="content-item">
+          <h1 class="title">
+            Ember
+          </h1>
+          <div class="description">
+            Được dịch từ tiếng Anh-Ember.js là một khung công tác web JavaScript mã nguồn mở sử dụng một mẫu dịch vụ
+            thành phần. Nó cho phép các nhà phát triển tạo các ứng dụng web một trang có thể mở rộng bằng cách kết hợp
+            các thành ngữ phổ biến, các phương pháp hay nhất và các mẫu từ các mẫu hệ sinh thái ứng dụng một trang khác
+            vào khuôn khổ.
+          </div>
+        </div>
+        <div class="content-item">
+          <h1 class="title">
+            Vuejs
+          </h1>
+          <div class="description">
+            Vue.js, gọi tắt là Vue, là một framework linh động dùng để xây dựng giao diện người dùng. Khác với các
+            framework nguyên khối, Vue được thiết kế từ đầu theo hướng cho phép và khuyến khích việc phát triển ứng dụng
+            theo các bước.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="tabUI.js"></script>
+</body>
+
+</html>
