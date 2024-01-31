@@ -1,0 +1,36 @@
+body {
+  margin: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: unset;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-center {
+  align-items: center;
+}
+
+.mt-2 {
+  margin-top: 16px;
+}
+
+.mb-1 {
+  margin-bottom: 8px;
+}
+
+.mb-2 {
+  margin-bottom: 16px;
+}
+
+.mb-4 {
+  margin-bottom: 32px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form validation</title>
+  <link rel="stylesheet" href="../base.css" />
+  <link rel="stylesheet" href="./form.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="register-form flex-column flex-column-center">
+      <h2 class="mb-2">Register member</h2>
+      <h4 class="mb-4">Let's learn about programming together for free at F8❤️</h4>
+      <form id="register" action="" class="flex-column flex-column-center">
+        <div class="form-group flex-column">
+          <label for="full-name">Full name</label>
+          <input id="full-name" name="fullName" class="form-control" placeholder="Enter your name">
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" class="form-control" placeholder="abc@gmail.com">
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label for="password">Password</label>
+          <input id="password" class="form-control" name="password" placeholder="Enter your password">
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label for="passwordConfirmation">Password Confirmation</label>
+          <input id="passwordConfirmation" class="form-control" placeholder="Confirm your password">
+          <div class="error-message"></div>
+        </div>
+        <!-- Button -->
+        <input type="submit" value="Register" class="mt-2">
+      </form>
+    </div>
+  </div>
+
+  <script src="./validation.js"></script>
+</body>
+
+</html>
