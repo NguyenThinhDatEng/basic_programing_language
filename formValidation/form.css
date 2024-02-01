@@ -71,10 +71,42 @@ input.error {
   border-color: var(--error) !important;
 }
 
-input+.error-message {
+select {
+  height: 32px;
+}
+
+select.error {
+  border-color: var(--error) !important;
+}
+
+.error-message.error {
+  margin-top: 4px;
+  color: var(--error);
+}
+
+.controls {
+  height: fit-content;
+  flex-wrap: wrap;
+}
+
+.controls input {
+  margin: unset;
+}
+
+.controls>*:nth-child(n+2) {
+  /* Áp dụng cho các phần tử con trực tiếp từ phần tử thứ 2 trở đi */
   margin-top: 4px;
 }
 
-.error.error-message {
-  color: var(--error);
+.control {
+  min-width: 100px;
+}
+
+.control input {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.control label {
+  cursor: pointer;
 }

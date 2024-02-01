@@ -11,10 +11,10 @@
 
 <body>
   <div class="container">
-    <div class="register-form flex-column flex-column-center">
+    <div class="register-form flex-column flex-center">
       <h2 class="mb-2">Register member</h2>
       <h4 class="mb-4">Let's learn about programming together for free at F8❤️</h4>
-      <form id="register" action="" class="flex-column flex-column-center">
+      <form id="register" action="" class="flex-column flex-center">
         <div class="form-group flex-column">
           <label for="full-name">Full name</label>
           <input id="full-name" name="fullName" class="form-control" placeholder="Enter your name">
@@ -24,6 +24,67 @@
         <div class="form-group flex-column">
           <label for="email">Email</label>
           <input id="email" type="email" name="email" class="form-control" placeholder="abc@gmail.com">
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label>Gender</label>
+          <div class="controls flex-row flex-center space-between mt-1">
+            <div class="control flex-row flex-center flex1">
+              <input id="male" type="radio" name="gender" value="0">
+              <label for="male">Male</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='female' type="radio" name="gender" value="1">
+              <label for="female">Female</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='other' type="radio" name="gender" value="2">
+              <label for="other">Other</label>
+            </div>
+          </div>
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label for="orientation">Orientation</label>
+          <select id="orientation" class="form-control flex-row flex-center space-between mt-1">
+            <option value="">--Select your orientation--</option>
+            <option value="0">Front-end</option>
+            <option value="1">Back-end</option>
+            <option value="2">Fullstack</option>
+          </select>
+          <div class="error-message"></div>
+        </div>
+
+        <div class="form-group flex-column">
+          <label>Favorite Languages</label>
+          <div class="controls flex-row flex-center space-between mt-1">
+            <div class="control flex-row flex-center flex1">
+              <input id='Javascript' type="checkbox" name="language" value="Javascript">
+              <label for="Javascript">Javascript</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id="HTML/CSS" type="checkbox" name="language" value="HTML/CSS">
+              <label for="HTML/CSS">HTML/CSS</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='C#' type="checkbox" name="language" value="C#">
+              <label for="C#">C#</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='PHP' type="checkbox" name="language" value="PHP">
+              <label for="PHP">PHP</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='Python' type="checkbox" name="language" value="Python">
+              <label for="Python">Python</label>
+            </div>
+            <div class="control flex-row flex-center flex1">
+              <input id='Java' type="checkbox" name="language" value="Java">
+              <label for="Java">Java</label>
+            </div>
+          </div>
           <div class="error-message"></div>
         </div>
 
@@ -38,6 +99,7 @@
           <input id="passwordConfirmation" class="form-control" placeholder="Confirm your password">
           <div class="error-message"></div>
         </div>
+
         <!-- Button -->
         <input type="submit" value="Register" class="mt-2">
       </form>

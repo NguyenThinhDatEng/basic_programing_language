@@ -1,4 +1,5 @@
 $ = document.querySelector.bind(document);
+$$ = document.querySelectorAll.bind(document);
 
 String.prototype.format = function () {
   var args = arguments;
@@ -11,26 +12,32 @@ String.prototype.format = function () {
 const validationRules = {
   required: {
     name: "required",
-    message: "Trường thông tin bắt buộc nhập",
+    message: "Required information field",
   },
   isEmail: {
     name: "isEmail",
-    message: "Email không đúng định dạng",
+    message: "Email invalidate",
   },
   minLength: {
     name: "minLength",
-    message: `Trường thông tin phải có ít nhất {0} ký tự`,
+    message: `The information field must have at least {0} characters`,
   },
   equalTo: {
     name: "equalTo",
-    message: "Trường thông tin không khớp",
+    message: "The information field do not match",
   },
 };
 
+const inputTypes = {
+  radio: "radio",
+  checkbox: "checkbox",
+  file: "file",
+};
+
 // Kiểm tra tính hợp lệ
-const checkValidity = (value, rules) => {
+const checkValidity = (elements, rules) => {
   let errorMessage = [];
-  if (Array.isArray(rules)) {
+  if (Array.isArray(rules) && elements.length > 0) {
     errorMessage = rules.map((rule) => {
       // Lấy ra message cảnh báo theo dữ liệu custom
       const errorMessageCustom = rule.message;
@@ -40,12 +47,12 @@ const checkValidity = (value, rules) => {
       );
       // Lấy ra giá trị của rule
       const ruleValue = rule[ruleName];
+      // value of input
+      const value = elements[0].value;
 
       switch (ruleName) {
         case validationRules.required.name:
-          return !value?.trim()
-            ? errorMessageCustom ?? validationRules.required.message
-            : "";
+          return validateRequired(elements, errorMessageCustom);
         case validationRules.isEmail.name:
           const isValid =
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -75,22 +82,48 @@ const checkValidity = (value, rules) => {
   return errorMessage.find((x) => x);
 };
 
+/**
+ * @description Xử lý validate với rule yều cầu nhập
+ * @param {Object} elements node in html
+ * @param {String} errorMessageCustom
+ * @returns {String} errorMessage
+ */
+const validateRequired = (elements, errorMessageCustom) => {
+  // type of input
+  const type = elements[0].type;
+  // value of input
+  const value = elements[0].value;
+  switch (type) {
+    case inputTypes.radio:
+    case inputTypes.checkbox:
+      return Array.from(elements).some((x) => x.checked)
+        ? ""
+        : errorMessageCustom ?? validationRules.required.message;
+    default:
+      return !value?.trim()
+        ? errorMessageCustom ?? validationRules.required.message
+        : "";
+  }
+};
+
 // Validate các controls
 const validateElement = (validation, configs) => {
   let isValid = true;
-  const element = $(validation.selector);
-  if (element) {
+  const elements = $$(validation.selector);
+  if (elements?.length > 0) {
     // get configs
     const { formGroupSelector, errorClassName, errorMessageSelector } = configs;
     // check
-    const errorMessage = checkValidity(element.value, validation.rules);
+    const errorMessage = checkValidity(elements, validation.rules);
     if (errorMessage) {
       // update valid variable
       isValid = false;
       // update element
-      element.classList.add(errorClassName);
+      Array.from(elements).forEach((x) => {
+        x.classList.add(errorClassName);
+      });
       // error message element
-      const errorMessageElement = element
+      const errorMessageElement = elements[0]
         .closest(formGroupSelector)
         ?.querySelector(errorMessageSelector);
       if (errorMessageElement) {
@@ -102,7 +135,11 @@ const validateElement = (validation, configs) => {
   return isValid;
 };
 
-const validate = (configs) => {
+/**
+ * Khởi tạo các sự kiện cho form và controls in from
+ * @param {Object} configs Cấu hình validation
+ */
+const validator = (configs) => {
   const {
     formSelector,
     formGroupSelector,
@@ -115,23 +152,28 @@ const validate = (configs) => {
     // Validate controls
     if (Array.isArray(validation)) {
       Array.from(validation).forEach((x) => {
-        const element = $(x.selector);
-        if (element) {
-          const errorMessageElement = element
+        const elements = $$(x.selector);
+        if (elements.length > 0) {
+          const errorMessageElement = elements[0]
             .closest(formGroupSelector)
             ?.querySelector(errorMessageSelector);
 
-          element.onblur = () => {
-            validateElement(x, configs);
-          };
+          if (elements.length == 1) {
+            elements[0].onblur = () => {
+              validateElement(x, configs);
+            };
+          }
 
-          element.oninput = () => {
-            element.classList.remove(errorClassName);
-            if (errorMessageElement) {
-              errorMessageElement.classList.remove(errorClassName);
-              errorMessageElement.textContent = "";
-            }
-          };
+          // input event
+          Array.from(elements).forEach((element) => {
+            element.oninput = () => {
+              element.classList.remove(errorClassName);
+              if (errorMessageElement) {
+                errorMessageElement.classList.remove(errorClassName);
+                errorMessageElement.textContent = "";
+              }
+            };
+          });
         }
       });
     }
@@ -146,9 +188,8 @@ const validate = (configs) => {
           if (!result) {
             isValid = false;
           } else {
-            const element = $(x.selector);
             if (x.field) {
-              data[x.field] = element.value;
+              data[x.field] = getFormGroupValue(x.selector);
             }
           }
         });
@@ -162,7 +203,27 @@ const validate = (configs) => {
   }
 };
 
-validate({
+// Lấy ra giá trị của form group
+const getFormGroupValue = (selector) => {
+  const elements = $$(selector);
+  if (elements.length > 0) {
+    const type = elements[0].type;
+    switch (type) {
+      case inputTypes.radio:
+        return Array.from(elements).find((x) => x.checked)?.value;
+      case inputTypes.checkbox:
+        return Array.from(elements)
+          .map((x) => (x.checked ? x.value : ""))
+          .filter((x) => x);
+      case inputTypes.file:
+        return elements[0].files;
+      default:
+        return elements[0].value;
+    }
+  }
+};
+
+validator({
   formSelector: "#register",
   formGroupSelector: ".form-group",
   errorMessageSelector: ".error-message",
@@ -171,12 +232,29 @@ validate({
     {
       selector: "#full-name",
       field: "fullName",
-      rules: [{ required: true, message: "Vui lòng nhập đẩy đủ họ và tên" }],
+      rules: [
+        { required: true, message: "Please enter full first and last name" },
+      ],
     },
     {
       selector: "#email",
       field: "email",
       rules: [{ required: true }, { isEmail: true }],
+    },
+    {
+      selector: "[name=gender]",
+      field: "gender",
+      rules: [{ required: true }],
+    },
+    {
+      selector: "#orientation",
+      field: "orientation",
+      rules: [{ required: true }],
+    },
+    {
+      selector: "[name=language]",
+      field: "languages",
+      rules: [{ required: true }],
     },
     {
       selector: "#password",
