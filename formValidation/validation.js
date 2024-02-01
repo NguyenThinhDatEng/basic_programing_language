@@ -1,5 +1,4 @@
 $ = document.querySelector.bind(document);
-$$ = document.querySelectorAll.bind(document);
 
 String.prototype.format = function () {
   var args = arguments;
@@ -107,9 +106,9 @@ const validateRequired = (elements, errorMessageCustom) => {
 };
 
 // Validate các controls
-const validateElement = (validation, configs) => {
+const validateElement = (form, validation, configs) => {
   let isValid = true;
-  const elements = $$(validation.selector);
+  const elements = form.querySelectorAll(validation.selector);
   if (elements?.length > 0) {
     // get configs
     const { formGroupSelector, errorClassName, errorMessageSelector } = configs;
@@ -152,7 +151,7 @@ const validator = (configs) => {
     // Validate controls
     if (Array.isArray(validation)) {
       Array.from(validation).forEach((x) => {
-        const elements = $$(x.selector);
+        const elements = form.querySelectorAll(x.selector);
         if (elements.length > 0) {
           const errorMessageElement = elements[0]
             .closest(formGroupSelector)
@@ -160,7 +159,7 @@ const validator = (configs) => {
 
           if (elements.length == 1) {
             elements[0].onblur = () => {
-              validateElement(x, configs);
+              validateElement(form, x, configs);
             };
           }
 
@@ -184,12 +183,12 @@ const validator = (configs) => {
       const data = {};
       if (Array.isArray(validation)) {
         Array.from(validation).forEach((x) => {
-          const result = validateElement(x, configs);
+          const result = validateElement(form, x, configs);
           if (!result) {
             isValid = false;
           } else {
             if (x.field) {
-              data[x.field] = getFormGroupValue(x.selector);
+              data[x.field] = getFormGroupValue(form, x.selector);
             }
           }
         });
@@ -204,8 +203,8 @@ const validator = (configs) => {
 };
 
 // Lấy ra giá trị của form group
-const getFormGroupValue = (selector) => {
-  const elements = $$(selector);
+const getFormGroupValue = (form, selector) => {
+  const elements = form.querySelectorAll(selector);
   if (elements.length > 0) {
     const type = elements[0].type;
     switch (type) {
